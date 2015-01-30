@@ -1,0 +1,92 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <head>
+    
+    <title>homepage</title>
+    
+    ## add any site-wide scripts or CSS here; for example, jquery:
+    <!-- Latest compiled and minified CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    ## render the css with the same name as this page
+    ${ static_renderer.get_template_css(request, context)  }
+  
+  </head>
+<body>
+    <div class="navbar">
+        <!-- Static navbar -->
+        <div class='navbar navbar-inverse navbar-inner'>
+            <div class='container-fluid'>
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="
+                                                      padding-top: 5px;
+                                                      width: 430px;
+                                                      height: 50px;
+                                                      padding-bottom: -10;
+                                                      margin-top: -10;
+                                                      border-top-width: 10px;
+                                                      padding-bottom: 0px;
+                                                  ">
+                        <svg width="350" height="80" viewBox="0 -24 500 100" x="5" y="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" style="padding-top: 10px;">
+                            <g id="Page-1" stroke="none" stroke-width=".75" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                <text id="Colonial-Heritage-Fo" y="15px" sketch:type="MSTextLayer" font-family="Edwardian Script ITC" font-size="55.25" font-weight="normal" fill="#FFFFFF">
+                                    <tspan x="-9" y="0">Colonial Heritage Foundation</tspan>
+                                </text>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/about/">About</a>
+                        </li>
+                        <li><a href="/festivals/">Festivals</a>
+                        </li>
+                        <li><a href="/rentals/">Rentals</a>
+                        </li>
+                        <li>
+                            <a href="/store/">Store</a>
+                        </li>
+                        <li>
+                            <a href="/users/">Users</a>
+                        </li>
+                        <li>
+                         <a href="/login/">Login</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <%block name="content">
+      Site content goes here in sub-templates.
+    </%block>  
+  
+    ## render the JS with the same name as this page
+    ${ static_renderer.get_template_js(request, context)  }
+  
+  </body>
+</html>

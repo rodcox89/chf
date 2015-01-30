@@ -1,0 +1,40 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+  <div class="container auth">
+    <div id="big-form" class="well auth-box">
+      <form>
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Login Here</legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+             
+            <div class="">
+              <input id="textinput" name="textinput" placeholder="Username" class="form-control input-md" type="text">
+              
+            </div>
+          </div>
+
+          <!-- Password input-->
+          <div class="form-group">
+            
+            <div class="">
+              <input id="passwordinput" name="passwordinput" placeholder="Password" class="form-control input-md" type="password">
+              <span class="help-block">help</span>
+            </div>
+          </div>
+          <!-- Button (Double) -->
+          <div class="form-group">
+            <div class="">
+              <button id="button1id" name="button1id" class="btn btn-success">Login</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</%block>

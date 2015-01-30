@@ -1,0 +1,11 @@
+{
+  "name": "chf",
+  "version": "0.0.0",
+  "authors": [
+    "rodcox89 <neddam12>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.4"
+  }
+}

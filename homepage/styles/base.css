@@ -1,0 +1,29 @@
+body > div.navbar > div{
+	border-radius: 0;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    background: none !important; 
+  	border: 0 !important;
+  	box-shadow: none !important;
+  	-webkit-box-shadow: none !important;
+
+}
+body > div.navbar{
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+
+#navbar > ul{
+	display: inline;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a:#navbar > ul > li#navbar > ul > li:nth-child(5){
+
+   color:#FAF3F3;
+}
