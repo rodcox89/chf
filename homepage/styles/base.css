@@ -39,3 +39,4 @@ a:#navbar > ul > li#navbar > ul > li:nth-child(5){
   color: #FAF3F3;
   text-shadow:none;
 }
+.nav-logo {height: 65%;}
