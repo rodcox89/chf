@@ -16,7 +16,3 @@ def process_request(request):
   params['items'] = users # 44:06
  
   return templater.render_to_response(request, 'items.html', params)
-
-
-
-  
