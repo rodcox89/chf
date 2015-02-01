@@ -6,6 +6,7 @@ html {
 }
 body {
   margin: 0;
+  background-color: #121212;
 }
 article,
 aside,
@@ -19,8 +20,36 @@ main,
 nav,
 section,
 summary {
+  
+
+
   display: block;
 }
+
+/*MY styles*/
+#wrapper > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > ul.nav.navbar-nav.navbar-right.navbar-user > li.dropdown.user-dropdown > a,a:hover
+{
+  width: 158px;
+}
+
+#page-wrapper > div > div > h1
+{
+  font-family: "Helvetica"
+  font: "Helvetica Neue";
+ 
+}
+
+  li:nth-child(2) > a.arrow-left {
+  border-top: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  
+  border-right: 0px solid white;
+}
+
+#wrapper > nav > div.navbar-header > a > img{
+
+}
+/*------------------------*/
 audio,
 canvas,
 progress,
@@ -56,6 +85,7 @@ dfn {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  font: "Lato";
 }
 mark {
   background: #ff0;
@@ -265,11 +295,11 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, Lato;
   font-size: 14px;
   line-height: 1.42857143;
   color: #BDBDBD;
-  background-color: #060606;
+  background-color: #121212;
 }
 input,
 button,
@@ -354,7 +384,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Lato";
   font-weight: 500;
   line-height: 1.1;
   color: #ffffff;
@@ -3100,7 +3130,7 @@ input[type="button"].btn-block {
 .navbar-fixed-bottom .dropdown .caret {
   border-top: 0;
   border-bottom: 4px solid;
-  content: "";
+  content: "";\
 }
 .dropup .dropdown-menu,
 .navbar-fixed-bottom .dropdown .dropdown-menu {
@@ -4016,6 +4046,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-inverse .navbar-brand {
   color: #ffffff;
+  padding-top: 7px;
+  height: 40px;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
@@ -4026,7 +4058,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #BDBDBD;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #BDBDBD;
+  color: #FFFFFF;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -5692,7 +5724,7 @@ button.close {
   }
 }
 .navbar {
-  border-bottom: 1px solid #282828;
+  /*border-bottom: 1px solid #282828;*/
 }
 .text-primary,
 .text-primary:hover {
@@ -5884,6 +5916,7 @@ body {
 #page-wrapper {
   width: 100%;
   padding: 5px 15px;
+  background-color: #121212;
 }
 
 /* Nav Messages */
@@ -5993,7 +6026,7 @@ table.tablesorter thead tr th:hover {
 
   .navbar-inverse .navbar-nav>li>a:hover,
   .navbar-inverse .navbar-nav>li>a:focus {
-  background-color: #080808;
+  background-color: #121212;
   }
 
   /* Nav Messages */
@@ -6089,7 +6122,10 @@ table.tablesorter thead tr th:hover {
 }
 
 .selected {
-    border-left:7px solid #2A9FD6;
+    border-left:7px solid #E13329;
+    background-color: #121212;
+    padding-top-top: -1px;
+    color:#E13329;
 }
 
  .timeline {

@@ -10,6 +10,14 @@ body > div.navbar > div{
   	-webkit-box-shadow: none !important;
 
 }
+#wrapper > nav > div.navbar-header > a
+{
+  padding-right: 11px;
+padding-bottom: 0px;
+width: 315px;
+height: 47px;
+padding-top: 5px;
+}
 body > div.navbar{
 	border-left: 0;
 	border-top: 0;
@@ -39,4 +47,4 @@ a:#navbar > ul > li#navbar > ul > li:nth-child(5){
   color: #FAF3F3;
   text-shadow:none;
 }
-.nav-logo {height: 65%;}
+.nav-logo {height: 96%;}
