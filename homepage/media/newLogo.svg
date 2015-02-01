@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="445px" height="117px" viewBox="0 0 445 117" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>newLogo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feMorphology radius="9" in="SourceAlpha" operator="dilate" result="shadowSpreadInner1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadInner1" result="shadowOffsetInner1"></feOffset>
+            <feGaussianBlur stdDeviation="0" in="shadowOffsetInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feComposite in="shadowBlurInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" in="shadowInnerInner1" type="matrix" result="shadowMatrixInner1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="rectangle-+-stripe" sketch:type="MSLayerGroup" transform="translate(0.000000, -11.000000)">
+            <text id="Colonial" sketch:type="MSTextLayer" font-family="Helvetica Neue" font-size="48.5" font-weight="bold" fill="#FFFFFF">
+                <tspan x="186" y="47">C</tspan>
+                <tspan x="221.9385" y="47" font-size="44.5">olonial</tspan>
+            </text>
+            <text id="Heritage" sketch:type="MSTextLayer" font-family="Helvetica Neue" font-size="48.5" font-weight="bold" fill="#FFFFFF">
+                <tspan x="186" y="87">H</tspan>
+                <tspan x="221.9385" y="87" font-size="44.5">eritage</tspan>
+            </text>
+            <text id="Foundation" sketch:type="MSTextLayer" font-family="Helvetica Neue" font-size="48.5" font-weight="bold" fill="#FFFFFF">
+                <tspan x="186" y="127">Foundation</tspan>
+            </text>
+            <rect id="Rectangle-2" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="12" width="186" height="115"></rect>
+            <rect id="rectangle" fill="#00BFFF" filter="url(#filter-1)" sketch:type="MSShapeGroup" x="0" y="12" width="79.7142857" height="61.9230769"></rect>
+            <path d="M79.7142857,12 L79.7142857,20.8461538 L186,20.8461538 L186,12 L79.7142857,12 L79.7142857,12 Z M79.7142857,29.6923077 L79.7142857,38.5384615 L186,38.5384615 L186,29.6923077 L79.7142857,29.6923077 L79.7142857,29.6923077 Z M79.7142857,47.3846154 L79.7142857,56.2307692 L186,56.2307692 L186,47.3846154 L79.7142857,47.3846154 L79.7142857,47.3846154 Z M79.7142857,65.0769231 L79.7142857,73.9230769 L186,73.9230769 L186,65.0769231 L79.7142857,65.0769231 L79.7142857,65.0769231 Z M0,82.7692308 L0,91.6153846 L186,91.6153846 L186,82.7692308 L0,82.7692308 L0,82.7692308 Z M0,100.461538 L0,109.307692 L186,109.307692 L186,100.461538 L0,100.461538 L0,100.461538 Z M0,118.153846 L0,127 L186,127 L186,118.153846 L0,118.153846 L0,118.153846 Z" id="stripe" fill="#F32E2A" sketch:type="MSShapeGroup"></path>
+        </g>
+        <g id="Star-1-+-Star-2" sketch:type="MSLayerGroup" transform="translate(40.000000, 32.000000) rotate(-28.000000) translate(-40.000000, -32.000000) translate(36.000000, 6.000000)" fill="#FFFFFF">
+            <polygon id="Star-1" sketch:type="MSShapeGroup" points="4 5.60000002 1.64885899 7.23606798 2.47830955 4.4944272 0.195773935 2.76393202 3.05954358 2.70557279 4 0 4.94045642 2.70557279 7.80422607 2.76393202 5.52169045 4.4944272 6.35114101 7.23606798 "></polygon>
+            <polygon id="Star-2" sketch:type="MSShapeGroup" transform="translate(4.000000, 48.000000) scale(1, -1) translate(-4.000000, -48.000000) " points="4 49.6 1.64885899 51.236068 2.47830955 48.4944272 0.195773935 46.763932 3.05954358 46.7055728 4 44 4.94045642 46.7055728 7.80422607 46.763932 5.52169045 48.4944272 6.35114101 51.236068 "></polygon>
+        </g>
+        <g id="Star-4-+-Star-3" sketch:type="MSLayerGroup" transform="translate(40.000000, 32.000000) rotate(-52.000000) translate(-40.000000, -32.000000) translate(36.000000, 6.000000)" fill="#FFFFFF">
+            <polygon id="Star-4" sketch:type="MSShapeGroup" points="4 5.60000002 1.64885899 7.23606798 2.47830955 4.4944272 0.195773935 2.76393202 3.05954358 2.70557279 4 0 4.94045642 2.70557279 7.80422607 2.76393202 5.52169045 4.4944272 6.35114101 7.23606798 "></polygon>
+            <polygon id="Star-3" sketch:type="MSShapeGroup" transform="translate(4.000000, 48.000000) scale(1, -1) translate(-4.000000, -48.000000) " points="4 49.6 1.64885899 51.236068 2.47830955 48.4944272 0.195773935 46.763932 3.05954358 46.7055728 4 44 4.94045642 46.7055728 7.80422607 46.763932 5.52169045 48.4944272 6.35114101 51.236068 "></polygon>
+        </g>
+        <g id="Star-4-+-Star-6" sketch:type="MSLayerGroup" transform="translate(40.000000, 32.000000) rotate(-76.000000) translate(-40.000000, -32.000000) translate(36.000000, 6.000000)" fill="#FFFFFF">
+            <polygon id="Star-4" sketch:type="MSShapeGroup" points="4 5.60000002 1.64885899 7.23606798 2.47830955 4.4944272 0.195773935 2.76393202 3.05954358 2.70557279 4 0 4.94045642 2.70557279 7.80422607 2.76393202 5.52169045 4.4944272 6.35114101 7.23606798 "></polygon>
+            <polygon id="Star-3" sketch:type="MSShapeGroup" transform="translate(4.000000, 48.000000) scale(1, -1) translate(-4.000000, -48.000000) " points="4 49.6 1.64885899 51.236068 2.47830955 48.4944272 0.195773935 46.763932 3.05954358 46.7055728 4 44 4.94045642 46.7055728 7.80422607 46.763932 5.52169045 48.4944272 6.35114101 51.236068 "></polygon>
+        </g>
+        <g id="Star-4-+-Star-7" sketch:type="MSLayerGroup" transform="translate(40.000000, 32.000000) rotate(-103.000000) translate(-40.000000, -32.000000) translate(36.000000, 6.000000)" fill="#FFFFFF">
+            <polygon id="Star-4" sketch:type="MSShapeGroup" points="4 5.60000002 1.64885899 7.23606798 2.47830955 4.4944272 0.195773935 2.76393202 3.05954358 2.70557279 4 0 4.94045642 2.70557279 7.80422607 2.76393202 5.52169045 4.4944272 6.35114101 7.23606798 "></polygon>
+            <polygon id="Star-3" sketch:type="MSShapeGroup" transform="translate(4.000000, 48.000000) scale(1, -1) translate(-4.000000, -48.000000) " points="4 49.6 1.64885899 51.236068 2.47830955 48.4944272 0.195773935 46.763932 3.05954358 46.7055728 4 44 4.94045642 46.7055728 7.80422607 46.763932 5.52169045 48.4944272 6.35114101 51.236068 "></polygon>
+        </g>
+        <g id="Star-4-+-Star-8" sketch:type="MSLayerGroup" transform="translate(40.000000, 32.000000) rotate(-126.000000) translate(-40.000000, -32.000000) translate(36.000000, 6.000000)" fill="#FFFFFF">
+            <polygon id="Star-4" sketch:type="MSShapeGroup" points="4 5.60000002 1.64885899 7.23606798 2.47830955 4.4944272 0.195773935 2.76393202 3.05954358 2.70557279 4 0 4.94045642 2.70557279 7.80422607 2.76393202 5.52169045 4.4944272 6.35114101 7.23606798 "></polygon>
+            <polygon id="Star-3" sketch:type="MSShapeGroup" transform="translate(4.000000, 48.000000) scale(1, -1) translate(-4.000000, -48.000000) " points="4 49.6 1.64885899 51.236068 2.47830955 48.4944272 0.195773935 46.763932 3.05954358 46.7055728 4 44 4.94045642 46.7055728 7.80422607 46.763932 5.52169045 48.4944272 6.35114101 51.236068 "></polygon>
+        </g>
+        <g id="Star-4-+-Star-4" sketch:type="MSLayerGroup" transform="translate(40.000000, 32.000000) rotate(-152.000000) translate(-40.000000, -32.000000) translate(36.000000, 6.000000)" fill="#FFFFFF">
+            <polygon id="Star-4" sketch:type="MSShapeGroup" points="4 5.60000002 1.64885899 7.23606798 2.47830955 4.4944272 0.195773935 2.76393202 3.05954358 2.70557279 4 0 4.94045642 2.70557279 7.80422607 2.76393202 5.52169045 4.4944272 6.35114101 7.23606798 "></polygon>
+            <polygon id="Star-3" sketch:type="MSShapeGroup" transform="translate(4.000000, 48.000000) scale(1, -1) translate(-4.000000, -48.000000) " points="4 49.6 1.64885899 51.236068 2.47830955 48.4944272 0.195773935 46.763932 3.05954358 46.7055728 4 44 4.94045642 46.7055728 7.80422607 46.763932 5.52169045 48.4944272 6.35114101 51.236068 "></polygon>
+        </g>
+        <g id="Star-4-+-Star-5" sketch:type="MSLayerGroup" transform="translate(40.000000, 32.000000) rotate(-180.000000) translate(-40.000000, -32.000000) translate(36.000000, 6.000000)" fill="#FFFFFF">
+            <polygon id="Star-4" sketch:type="MSShapeGroup" points="4 5.60000002 1.64885899 7.23606798 2.47830955 4.4944272 0.195773935 2.76393202 3.05954358 2.70557279 4 0 4.94045642 2.70557279 7.80422607 2.76393202 5.52169045 4.4944272 6.35114101 7.23606798 "></polygon>
+            <polygon id="Star-3" sketch:type="MSShapeGroup" transform="translate(4.000000, 48.000000) scale(1, -1) translate(-4.000000, -48.000000) " points="4 49.6 1.64885899 51.236068 2.47830955 48.4944272 0.195773935 46.763932 3.05954358 46.7055728 4 44 4.94045642 46.7055728 7.80422607 46.763932 5.52169045 48.4944272 6.35114101 51.236068 "></polygon>
+        </g>
+    </g>
+</svg>

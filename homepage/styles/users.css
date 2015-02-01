@@ -60,7 +60,6 @@ border-top-right-radius: 1em 3em;
 #mytable{
 margin-right: 30px;
 padding-right: 30px;
-margin-left: 30px;
 /* border-color: aqua; */
 /* border: solid aqua; */
 padding-left: 30px;
@@ -82,6 +81,21 @@ padding-bottom: 50px;
   margin-left: 30px;
 margin-bottom: 20px;
 font-size: 45px;
+}
+#mytable > tbody > tr > td{
+
+text-align: center;
+border-top: 1px dotted #F5efef;
+
+
+
+}
+#page-wrapper > div:nth-child(1) > div > img{
+  margin-bottom: 10px;
+}
+#page-wrapper > div:nth-child(2) > div{
+  padding-left: 0px;
+
 }
 /*------------------------*/
 audio,
@@ -1476,11 +1490,14 @@ th {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-top: 1px solid #282828;
+ /* border-top: 1px solid #282828;*/
 }
 .table > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #282828;
+  text-align: center;
+  font-size: large;
+
 }
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
@@ -6011,7 +6028,9 @@ table.tablesorter thead tr th:hover {
   }
 
   #page-wrapper {
-  padding: 15px 25px;
+  padding: 25px;
+  padding-left:10px;
+  
   }
 
   /* Side Nav */
