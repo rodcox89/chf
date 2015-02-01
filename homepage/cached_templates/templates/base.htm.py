@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1422761550.291194
+_modified_time = 1422762521.695699
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -42,19 +42,19 @@ def render_body(context,**pageargs):
 
         __M_writer('\n\n    <!-- Latest compiled and minified JavaScript -->\n ')
         __M_writer(str( static_renderer.get_template_css(request, context)  ))
-        __M_writer('\n    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>\n    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>\n    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n')
+        __M_writer('\n    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>\n    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>\n    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n')
         __M_writer('   \n  \n  </head>\n  <body>\n    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
 
-        __M_writer('  \n  \n    \n    ')
-        __M_writer(str( static_renderer.get_template_js(request, context)  ))
-        __M_writer('\n    ')
+        __M_writer('  \n  \n    \n   \n    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'footlinks'):
             context['self'].footlinks(**pageargs)
         
 
+        __M_writer('\n     ')
+        __M_writer(str( static_renderer.get_template_js(request, context)  ))
         __M_writer('\n  </body>\n \n</html>')
         return ''
     finally:
@@ -99,6 +99,6 @@ def render_headlinks(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/rodneycox/chf/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "ascii", "line_map": {"64": 37, "70": 37, "76": 43, "16": 4, "82": 43, "88": 22, "94": 22, "31": 2, "32": 4, "33": 5, "18": 0, "100": 94, "37": 5, "38": 15, "43": 24, "44": 27, "45": 27, "46": 33, "51": 39, "52": 42, "53": 42, "58": 45}}
+{"filename": "/Users/rodneycox/chf/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "ascii", "line_map": {"64": 37, "70": 37, "76": 43, "16": 4, "82": 43, "88": 22, "94": 22, "31": 2, "32": 4, "33": 5, "18": 0, "100": 94, "37": 5, "38": 15, "43": 24, "44": 27, "45": 27, "46": 33, "51": 39, "56": 45, "57": 46, "58": 46}}
 __M_END_METADATA
 """
