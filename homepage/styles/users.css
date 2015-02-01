@@ -49,6 +49,40 @@ summary {
 #wrapper > nav > div.navbar-header > a > img{
 
 }
+
+#mytable > thead{
+
+
+border-top-left-radius: 2em 0.5em;
+border-top-right-radius: 1em 3em;
+}
+
+#mytable{
+margin-right: 30px;
+padding-right: 30px;
+margin-left: 30px;
+/* border-color: aqua; */
+/* border: solid aqua; */
+padding-left: 30px;
+padding-top: 30px;
+padding-bottom: 50px;
+
+}
+#mytable > thead{
+  background-color: deepskyblue;
+}
+
+#mytable > tbody > tr{
+  background-color: #121212;
+  border-top: 2px;
+  border-color: deepskyblue;
+}
+
+#page-wrapper > div > div > h1{
+  margin-left: 30px;
+margin-bottom: 20px;
+font-size: 45px;
+}
 /*------------------------*/
 audio,
 canvas,
