@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1422757819.740367
+_modified_time = 1422761550.291194
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/homepage/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['headlinks', 'footlinks', 'content']
+_exports = ['content', 'footlinks', 'headlinks']
 
 
 from django_mako_plus.controller import static_files 
@@ -19,14 +19,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def headlinks():
-            return render_headlinks(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         def footlinks():
             return render_footlinks(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        request = context.get('request', UNDEFINED)
+        def headlinks():
+            return render_headlinks(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -40,10 +40,10 @@ def render_body(context,**pageargs):
             context['self'].headlinks(**pageargs)
         
 
-        __M_writer('\n\n    <!-- Latest compiled and minified JavaScript -->\n    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>\n    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n')
-        __M_writer('    ')
+        __M_writer('\n\n    <!-- Latest compiled and minified JavaScript -->\n ')
         __M_writer(str( static_renderer.get_template_css(request, context)  ))
-        __M_writer('\n  \n  </head>\n  <body>\n    ')
+        __M_writer('\n    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>\n    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>\n    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n')
+        __M_writer('   \n  \n  </head>\n  <body>\n    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
@@ -61,13 +61,13 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_headlinks(context,**pageargs):
+def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def headlinks():
-            return render_headlinks(context)
+        def content():
+            return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\n\n    ')
+        __M_writer('\n      \n    ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -85,13 +85,13 @@ def render_footlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content(context,**pageargs):
+def render_headlinks(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content():
-            return render_content(context)
+        def headlinks():
+            return render_headlinks(context)
         __M_writer = context.writer()
-        __M_writer('\n      \n    ')
+        __M_writer('\n\n    ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -99,6 +99,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/rodneycox/chf/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "ascii", "line_map": {"64": 22, "70": 22, "76": 41, "16": 4, "82": 41, "88": 35, "94": 35, "31": 2, "32": 4, "33": 5, "18": 0, "100": 94, "37": 5, "38": 15, "43": 24, "44": 31, "45": 31, "46": 31, "51": 37, "52": 40, "53": 40, "58": 43}}
+{"filename": "/Users/rodneycox/chf/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "ascii", "line_map": {"64": 37, "70": 37, "76": 43, "16": 4, "82": 43, "88": 22, "94": 22, "31": 2, "32": 4, "33": 5, "18": 0, "100": 94, "37": 5, "38": 15, "43": 24, "44": 27, "45": 27, "46": 33, "51": 39, "52": 42, "53": 42, "58": 45}}
 __M_END_METADATA
 """
