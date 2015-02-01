@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1422679940.098734
+_modified_time = 1422757819.740367
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -19,15 +19,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        self = context.get('self', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         def headlinks():
             return render_headlinks(context._locals(__M_locals))
-        def footlinks():
-            return render_footlinks(context._locals(__M_locals))
         def content():
             return render_content(context._locals(__M_locals))
+        def footlinks():
+            return render_footlinks(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -36,9 +35,7 @@ def render_body(context,**pageargs):
         __M_locals_builtin_stored = __M_locals_builtin()
         __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['static_renderer'] if __M_key in __M_locals_builtin_stored]))
         __M_writer('\n\n<!DOCTYPE html>\n<html>\n  \n  <head>\n    <meta charset="UTF-8">\n    <title>homepage</title>\n    \n')
-        __M_writer('    <!-- Latest compiled and minified CSS -->\n    <link href=\'http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic\' rel=\'stylesheet\' type=\'text/css\'>\n    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css">\n    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">\n    <link rel="stylesheet" href="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparty/bootstrap/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/homepage/media/thirdparty/font-awesome/css/font-awesome.min.css">\n    <link rel="stylesheet" href="/static/homepage/media/thirdparty/css/local.css">\n    <link rel="stylesheet" href="http://www.shieldui.com/shared/components/latest/css/shieldui-all.min.css">\n    <link rel="stylesheet" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css">\n    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css">\n    ')
+        __M_writer('    <!-- Latest compiled and minified CSS -->\n    <link href=\'http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic\' rel=\'stylesheet\' type=\'text/css\'>\n    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css">\n    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">\n    <link rel="stylesheet" href="http://www.shieldui.com/shared/components/latest/css/shieldui-all.min.css">\n    <link rel="stylesheet" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css">\n    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css">\n    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'headlinks'):
             context['self'].headlinks(**pageargs)
         
@@ -102,6 +99,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "base.htm", "line_map": {"67": 25, "97": 38, "73": 25, "79": 44, "16": 4, "18": 0, "85": 44, "91": 38, "32": 2, "33": 4, "34": 5, "38": 5, "39": 15, "40": 19, "41": 19, "103": 97, "46": 27, "47": 34, "48": 34, "49": 34, "54": 40, "55": 43, "56": 43, "61": 46}, "filename": "/Users/rodneycox/chf/homepage/templates/base.htm", "source_encoding": "ascii"}
+{"filename": "/Users/rodneycox/chf/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "ascii", "line_map": {"64": 22, "70": 22, "76": 41, "16": 4, "82": 41, "88": 35, "94": 35, "31": 2, "32": 4, "33": 5, "18": 0, "100": 94, "37": 5, "38": 15, "43": 24, "44": 31, "45": 31, "46": 31, "51": 37, "52": 40, "53": 40, "58": 43}}
 __M_END_METADATA
 """
