@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1422769302.36635
+_modified_time = 1422852478.182715
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -19,9 +19,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         def headlinks():
             return render_headlinks(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
@@ -99,6 +99,6 @@ def render_footlinks(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "line_map": {"64": 38, "70": 38, "76": 23, "16": 4, "82": 23, "88": 44, "94": 44, "31": 2, "32": 4, "33": 5, "18": 0, "100": 94, "37": 5, "38": 15, "43": 25, "44": 28, "45": 28, "46": 34, "51": 40, "56": 46, "57": 47, "58": 47}, "uri": "base.htm", "filename": "/Users/rodneycox/chf/homepage/templates/base.htm"}
+{"uri": "base.htm", "filename": "/Users/rodneycox/chf/homepage/templates/base.htm", "source_encoding": "ascii", "line_map": {"64": 38, "70": 38, "76": 23, "16": 4, "82": 23, "88": 44, "94": 44, "31": 2, "32": 4, "33": 5, "18": 0, "100": 94, "37": 5, "38": 15, "43": 25, "44": 28, "45": 28, "46": 34, "51": 40, "56": 46, "57": 47, "58": 47}}
 __M_END_METADATA
 """

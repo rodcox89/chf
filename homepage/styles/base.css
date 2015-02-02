@@ -37,14 +37,17 @@ a:#navbar > ul > li#navbar > ul > li:nth-child(5){
 }
 #navbar > ul > li > a:hover
 {
-  background-color: #FFF;
-  color: #313131;
-  opacity: .90;
+  font-family: "Helvetica Neue";
+  font:"Helvetica Neue";
+  background-color: #121212;
+  color:  #FFF;
+  opacity: .99;
   text-shadow:none;
 }
 .navbar-inverse .navbar-nav>li>a
 {
-  color: #FAF3F3;
+  font-size: larger;
+  color: #121212;
   text-shadow:none;
 }
 .nav-logo {height: 96%;}
