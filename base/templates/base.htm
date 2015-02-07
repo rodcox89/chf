@@ -1,0 +1,55 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>base</title>
+    
+    ## add any site-wide scripts or CSS here; for example, jquery:
+    <!-- Latest compiled and minified CSS -->
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://www.shieldui.com/shared/components/latest/css/shieldui-all.min.css">
+    <link rel="stylesheet" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css">
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css">
+    
+    ## header links for children apps
+    <%block name="appheadlinks">
+        
+    </%block>
+
+    
+    
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     ${ static_renderer.get_template_css(request, context)  }
+      ## render the css with the same name as this page
+    
+  
+    </head>
+    <body>
+    ## content for children apps
+    <%block name="content">
+      
+    
+
+    </%block>  
+    
+    ## javascript for children
+    <%block name="appfooterlinks">
+
+    </%block>
+     ${ static_renderer.get_template_js(request, context)  }
+    </body>
+ 
+</html>

@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_mako_plus.controller',
     'homepage',
+    'base',
+    'administration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,7 +79,7 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': False,
-         }, 
+         },
     },
 }
 
@@ -93,7 +95,7 @@ DATABASES = {
         'PASSWORD': 'showtime',
         'HOST': 'localhost',
         'PORT': '5432',
-    }    
+    }
 }
 
 # Internationalization
@@ -115,18 +117,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    BASE_DIR,  
+    BASE_DIR,
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-###############################################################
-###   Specific settings for the Django-Mako-Plus app
-
-# identifies where the Mako template cache will be stored, relative to each app
+# ive to each app
 DMP_TEMPLATES_CACHE_DIR = 'cached_templates'
 
 # the default app and page to render in Mako when the url is too short
-DMP_DEFAULT_PAGE = 'index'  
+DMP_DEFAULT_PAGE = 'index'
 DMP_DEFAULT_APP = 'homepage'
 
 # these are included in every template by default - if you put your most-used libraries here, you won't have to import them exlicitly in templates
@@ -143,7 +142,7 @@ DMP_SIGNALS = True
 DMP_MINIFY_JS_CSS = True
 
 # see the DMP online tutorial for information about this setting
-DMP_TEMPLATES_DIRS = [ 
+DMP_TEMPLATES_DIRS = [
 # os.path.join(BASE_DIR, 'base_app', 'templates'),
 ]
 

@@ -12,10 +12,10 @@ templater = get_renderer('homepage')
 @view_function
 def process_request(request):
   params = {}
- 	
+
   users = hmod.SiteUser.objects.all().order_by('last_name','first_name')
   params['users'] = users # 44:06
- 
+
   return templater.render_to_response(request, 'users.html', params)
 
 ################################
@@ -24,10 +24,10 @@ def process_request(request):
 @view_function
 def edit(request):
   params = {}
-  
+
   try:
   	user = hmod.SiteUser.objects.get(id=request.urlparams[0])
-  
+
   except hmod.SiteUser.DoesNotExist:
   	return HttpResponseRedirect('/homepage/users/')
 
@@ -51,7 +51,7 @@ def edit(request):
 
   #user = hmod.SiteUser.objects.get(id=???)
 
-  return templater.render_to_response(request, 'users.edit.html', params)  
+  return templater.render_to_response(request, 'users.edit.html', params)
 
 class UserEditForm(forms.Form):
 	first_name = forms.CharField(required=True, max_length=100)

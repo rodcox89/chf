@@ -27,6 +27,16 @@ summary {
 }
 
 /*MY styles*/
+
+#wrapper > footer > div > p{
+  margin-top: 20%;
+  background-color: #777;
+  margin-bottom: 0px;
+}
+#page-wrapper > div > div:nth-child(1) > div > h1{
+  font-size:55px;
+}
+
 #wrapper > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > ul.nav.navbar-nav.navbar-right.navbar-user > li.dropdown.user-dropdown > a,a:hover
 {
   

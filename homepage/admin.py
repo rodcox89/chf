@@ -1,28 +1,14 @@
 from django.db import models
 from django.contrib import admin
-from .models import *
+from homepage import models as hmod
 
 
-admin.site.register(SiteUser)
-admin.site.register(Organization)
-admin.site.register(Artisan)
-admin.site.register(Agent)
-admin.site.register(Product)
-admin.site.register(IndividualProduct)
-admin.site.register(Participant)
-admin.site.register(Area)
-admin.site.register(SaleItem)
-admin.site.register(Item)
-admin.site.register(WardrobeItem)
-admin.site.register(PublicEvent)
-admin.site.register(Event)
-admin.site.register(Venue)
-admin.site.register(Order)
-admin.site.register(BulkProduct)
-admin.site.register(PersonalProduct)
-admin.site.register(ProductPicture)
-admin.site.register(BulkDetail)
-admin.site.register(RentedItem)
-admin.site.register(Rental)
-admin.site.register(Return)
-admin.site.register(PersonalDetail)
+admin.site.register(hmod.SiteUser)
+admin.site.register(hmod.Organization)
+admin.site.register(hmod.Product)
+admin.site.register(hmod.Area)
+admin.site.register(hmod.Item)
+admin.site.register(hmod.WardrobeItem)
+admin.site.register(hmod.PublicEvent)
+admin.site.register(hmod.Event)
+admin.site.register(hmod.Venue)

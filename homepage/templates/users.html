@@ -28,7 +28,7 @@
                     </li>
                     <li class="selected">
                         <div class="left-bar"></div>
-                        <a href="users.html"><i class="fa fa-users"></i>  Users 
+                        <a href="users.html"><i class="fa fa-users"></i>  Users
                             <div class="arrow-left"></div>
                         </a>
 
@@ -44,7 +44,7 @@
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-money"></i>  Products </a>
-                        
+
                     </li>
                 </ul>
 
@@ -69,12 +69,16 @@
         </nav>
 
         <div id="page-wrapper">
-           <div class="container-fluid">
+
+
+           <div class="container">
                 <div class="row">
-                    <h1 class="col-lg-10 col-lg-10 col-lg-offset-1">System Users</h1>            
+                    <div class=" col-lg-10 col-lg-offset-1">
+                        <h1 class="">System Users</h1>
+                    </div>
                 </div>
-            
-            <div class="row">   
+
+            <div class="row">
                 <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">
 
                     <div class="table-responsive">
@@ -82,6 +86,7 @@
                             <thead>
                                 <th></th>
                                 <th>ID</th>
+                                <th>Username</th>
                                 <th>First</th>
                                 <th>Last</th>
                                 <th>Email</th>
@@ -89,16 +94,17 @@
                                 <th>Delete</th>
                             </thead>
                             <tbody>
-                                    
-                                        %for user in users:  
+
+                                        %for user in users:
                                         <tr>
 
-                                            <td><input type="checkbox" class="checkthis" /></td>                                  
+                                            <td><input type="checkbox" class="checkthis" /></td>
                                             <td>${ user.id }</td>
+                                            <<td>${ user.username }</td>
                                             <td>${ user.first_name }</td>
                                             <td>${ user.last_name }</td>
                                             <td>${ user.email }</td>
-                                            ## <td><a href="/users.edit/${ user.id }/">Edit</a>| Delete</td>
+                                            <td><a href="/users.edit/${ user.id }/">Edit</a>| Delete</td>*/
                                             <td>
                                                 <p data-placement="top" data-toggle="tooltip" title="Edit">
                                                     <a href="/users.edit/${ user.id }/" class="button btn btn-primary btn-xs" data-title="Edit" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span>
@@ -111,10 +117,10 @@
                                                     </button>
                                                 </p>
                                             </td>
-                                            
+
                                         </tr>
-                                        %endfor  
-                       
+                                        %endfor
+
 
 
 
@@ -122,57 +128,24 @@
 
                         </table>
 
-</div>
+                    </div>
 
-                        <div class="clearfix"></div>
+                        ## <div class="clearfix"></div>
 
 
                     </div>
 
                 </div>
             </div>
-        </div>
-        <div class="container text-center">
-            
-          <div class="row">
-            <div class="col-MD-12">
-              <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked">
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Blog</a></li>
-                </ul>
-              </div>
-              <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked">
-                  <li><a href="#">Product for Mac</a></li>
-                  <li><a href="#">Product for Windows</a></li>
-                </ul>
-              </div>
-              <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked">
-                  <li><a href="#">Web analytics</a></li>
-                  <li><a href="#">Presentations</a></li>          
-                </ul>
-              </div>
-              <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked">
-                  <li><a href="#">Product Help</a></li>
-                  <li><a href="#">Developer API</a></li>
-                </ul>
-              </div>  
-            </div>
-          </div>
-          
             <div class="row">
-                <div class="col-md-10-12">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="/"> 2013 Company Name.</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy</a></li>
-                    </ul>
+                <div class="col-lg-10 col-lg-offset-1" style="background-color:red;">
+
+
                 </div>
             </div>
         </div>
+
+
     </div>
 
     </div>
