@@ -1,0 +1,41 @@
+
+/*add new user button*/
+
+#active > li:nth-child(3){
+    margin-top: 0px;
+}
+
+#active > li> a{
+    font-family: lato;
+    font-size:  large;
+}
+
+#active > li > a > i{
+    font-size:  larger;
+}
+
+#page-wrapper > div > div:nth-child(1) > div.col-lg-2.col-lg-col-lg-offset-1{
+
+}
+#page-wrapper > div > div:nth-child(1) > div.col-lg-5.col-lg-offset-1 > h1{
+  margin-bottom: 10px;
+}
+
+#page-wrapper > div > div:nth-child(1) > div.col-lg-2.col-lg-offset-3{
+  padding-top: 59px;
+}
+
+#page-wrapper > div > div:nth-child(1) > div.col-lg-2.col-lg-offset-3 > button{
+  margin-left: 50px;
+}
+
+#active > li.selected{
+  margin-top: 0px;
+}
+
+#wrapper > nav{
+  padding-top:3px;
+}
+#active > li:nth-child(2){
+    margin-top: 46px;
+}

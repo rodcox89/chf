@@ -1,0 +1,162 @@
+<%inherit file="base.htm" />
+
+<%block name="headlinks">
+
+</%block>
+
+<%block name="administrationcontent">
+    <div id="wrapper">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img class="nav-logo" src="/static/homepage/media/chflatowhite.svg">
+
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul id="active" class="nav navbar-nav side-nav">
+                    <li>
+                        ## spacer
+                    </li>
+                    <li>
+                        <a href="/administration/users/"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Users</a>
+                    </li>
+                    <li class="selected">
+                        <div class="left-bar"></div>
+                        <a href="/administration/locations/"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Locations
+                        <div class="arrow-left"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/administration/events/"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;&nbsp;&nbsp; Events</a>
+                    </li>
+                    <li>
+                        <a href="/administration/items/"><i class="fa fa-list-ol"></i>&nbsp;&nbsp;&nbsp;&nbsp; Rental Items</a>
+                    </li>
+                    <li>
+                        <a href="/administration/products/"><i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp;&nbsp;Products </a>
+
+                    </li>
+                    <li>
+                        <a href="/administration/venues/"><i class="fa fa-qrcode"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Venues</a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right navbar-user">
+
+                    <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Rodney Cox<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-user"></i> Profile</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-gear"></i> Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="/administration/users.logout_view/"><i class="fa fa-power-off"></i> Log Out</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="divider-vertical"></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+
+
+           <div class="container">
+                <div class="row">
+                    <div class=" col-lg-5 col-lg-offset-1">
+                        <h1 class="">Locations</h1>
+
+                    </div>
+                    <div class="col-lg-2 col-lg-offset-3">
+                      <a href="/administration/locations.create/" class="btn btn-default">
+                          New Location
+                      </a>
+                    </div>
+                </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">
+
+                    <div class="table-responsive">
+                        <table id="mytable" class="table">
+                            <thead>
+                                <th></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </thead>
+                            <tbody>
+
+                                        %for location in locations:
+                                        <tr>
+
+                                            <td><input type="checkbox" class="checkthis" /></td>
+                                            <td>${ location.id }</td>
+                                            <td>${ location.name }</td>
+                                            <td>${ location.description }</td>
+                                            <td>${ location.city }</td>
+                                            <td>${ location.state }</td>
+                                            ##
+                                            <td>
+                                                <p data-placement="top" data-toggle="tooltip" title="Edit">
+                                                    <a href="/administration/locations.edit/${ location.id }/" class="button btn btn-primary btn-xs" data-title="Edit" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p data-placement="top" data-toggle="tooltip" title="Delete">
+                                                    <a href="/administration/locations.remove/${ location.id }" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span>
+                                                    </a>
+                                                </p>
+                                            </td>
+
+                                        </tr>
+                                        %endfor
+
+
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                        ## <div class="clearfix"></div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    </div>
+</%block>
+
+<%block name="footlinks">
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+</%block>

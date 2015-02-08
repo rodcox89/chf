@@ -91,14 +91,14 @@ padding-bottom: 50px;
   padding-top: 0px;
   float: left;
   padding-left: 3px;
-  width: 214px;
+  width: 215px;
 
 }
 
 .left-bar{
   border-left: solid 7px #D71C20;
   width: 10px;
-  height: 49px;
+  height: 54px;
   z-index: 11;
   float: left;
 
@@ -112,8 +112,8 @@ padding-bottom: 50px;
 float: right;
 width: 0;
 height: 0;
-border-top: 25px solid transparent;
-border-bottom: 25px solid transparent;
+border-top: 27px solid transparent;
+border-bottom: 27px solid transparent;
 border-right: 28px solid #FFFFFF;
 z-index: 100;
 }
@@ -6255,7 +6255,7 @@ table.tablesorter thead tr th:hover {
       background-color: #121212;
       padding-top-top: -1px;
       color: #E13329;
-      border-right: solid 1px white;
+
 }
 
  .timeline {

@@ -6,7 +6,7 @@ from homepage import models as hmod
 admin.site.register(hmod.SiteUser)
 admin.site.register(hmod.Organization)
 admin.site.register(hmod.Product)
-admin.site.register(hmod.Area)
+admin.site.register(hmod.Location)
 admin.site.register(hmod.Item)
 admin.site.register(hmod.WardrobeItem)
 admin.site.register(hmod.PublicEvent)

@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423280011.800724
+_modified_time = 1423377834.71226
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/administration/templates/users.html'
 _template_uri = 'users.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['headlinks', 'footlinks', 'administrationcontent']
+_exports = ['footlinks', 'headlinks', 'administrationcontent']
 
 
 def _mako_get_namespace(context, name):
@@ -28,13 +28,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        users = context.get('users', UNDEFINED)
         def headlinks():
             return render_headlinks(context._locals(__M_locals))
         def footlinks():
             return render_footlinks(context._locals(__M_locals))
         def administrationcontent():
             return render_administrationcontent(context._locals(__M_locals))
-        users = context.get('users', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'headlinks'):
@@ -57,18 +57,6 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_headlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def headlinks():
-            return render_headlinks(context)
-        __M_writer = context.writer()
-        __M_writer('\n\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_footlinks(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -81,15 +69,27 @@ def render_footlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_headlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def headlinks():
+            return render_headlinks(context)
+        __M_writer = context.writer()
+        __M_writer('\n\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_administrationcontent(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        users = context.get('users', UNDEFINED)
         def administrationcontent():
             return render_administrationcontent(context)
-        users = context.get('users', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n    <div id="wrapper">\n\n        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n            <div class="navbar-header">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="index.html">\n                    <img class="nav-logo" src="/static/homepage/media/newlogowhitethe.svg">\n\n                </a>\n            </div>\n\n            <div class="collapse navbar-collapse navbar-ex1-collapse">\n                <ul id="active" class="nav navbar-nav side-nav">\n                    <li>\n')
-        __M_writer('                    </li>\n                    <li class="selected">\n                        <div class="left-bar"></div>\n                        <a href="users.html"><i class="fa fa-users"></i>  Users\n                            <div class="arrow-left"></div>\n                        </a>\n\n                    </li>\n                    <li>\n                        <a href="#"><i class="fa fa-map-marker"></i>  Locations</a>\n                    </li>\n                    <li>\n                        <a href="#"><i class="fa fa-calendar-o"></i>  Events</a>\n                    </li>\n                    <li>\n                        <a href="#"><i class="fa fa-list-ol"></i>  Rental Items</a>\n                    </li>\n                    <li>\n                        <a href="#"><i class="fa fa-money"></i>  Products </a>\n\n                    </li>\n                </ul>\n\n                <ul class="nav navbar-nav navbar-right navbar-user">\n\n                    <li class="dropdown user-dropdown">\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Rodney Cox<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#"><i class="fa fa-user"></i> Profile</a>\n                            </li>\n                            <li><a href="#"><i class="fa fa-gear"></i> Settings</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="/administration/users.logout_view/"><i class="fa fa-power-off"></i> Log Out</a>\n                            </li>\n\n                        </ul>\n                    </li>\n                    <li class="divider-vertical"></li>\n                </ul>\n            </div>\n        </nav>\n\n        <div id="page-wrapper">\n\n\n           <div class="container">\n                <div class="row">\n                    <div class=" col-lg-5 col-lg-offset-1">\n                        <h1 class="">System Users</h1>\n\n                    </div>\n                    <div class="col-lg-2 col-lg-offset-3">\n                      <a href="/administration/users.create/" class="btn btn-default">\n                          <i class="fa fa-male"></i>\n                          New User\n                      </a>\n                    </div>\n                </div>\n\n            <div class="row">\n                <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">\n\n                    <div class="table-responsive">\n                        <table id="mytable" class="table">\n                            <thead>\n                                <th></th>\n                                <th>ID</th>\n                                <th>First</th>\n                                <th>Last</th>\n                                <th>Username</th>\n                                <th>Email</th>\n                                <th>Edit</th>\n                                <th>Delete</th>\n                            </thead>\n                            <tbody>\n\n')
+        __M_writer('\n    <div id="wrapper">\n\n        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n            <div class="navbar-header">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="/homepage/index/">\n                    <img class="nav-logo" src="/static/homepage/media/chflatowhite.svg">\n\n                </a>\n            </div>\n\n            <div class="collapse navbar-collapse navbar-ex1-collapse">\n                <ul id="active" class="nav navbar-nav side-nav">\n                    <li>\n')
+        __M_writer('                    </li>\n                    <li class="selected">\n                        <div class="left-bar"></div>\n                        <a href="/administration/users/"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Users\n                            <div class="arrow-left"></div>\n                        </a>\n\n                    </li>\n                    <li>\n                        <a href="/administration/locations/"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Locations</a>\n                    </li>\n                    <li>\n                        <a href="/administration/events/"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;&nbsp;&nbsp; Events</a>\n                    </li>\n                    <li>\n                        <a href="/administration/items/"><i class="fa fa-list-ol"></i>&nbsp;&nbsp;&nbsp;&nbsp; Rental Items</a>\n                    </li>\n                    <li>\n                        <a href="/administration/products/"><i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp;&nbsp;Products </a>\n\n                    </li>\n                    <li>\n                        <a href="/administration/venues/"><i class="fa fa-qrcode"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Venues</a>\n                    </li>\n                </ul>\n\n                <ul class="nav navbar-nav navbar-right navbar-user">\n\n                    <li class="dropdown user-dropdown">\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Rodney Cox<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#"><i class="fa fa-user"></i> Profile</a>\n                            </li>\n                            <li><a href="#"><i class="fa fa-gear"></i> Settings</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="/administration/users.logout_view/"><i class="fa fa-power-off"></i> Log Out</a>\n                            </li>\n\n                        </ul>\n                    </li>\n                    <li class="divider-vertical"></li>\n                </ul>\n            </div>\n        </nav>\n\n        <div id="page-wrapper">\n\n\n           <div class="container">\n                <div class="row">\n                    <div class=" col-lg-5 col-lg-offset-1">\n                        <h1 class="">System Users</h1>\n\n                    </div>\n                    <div class="col-lg-2 col-lg-offset-3">\n                      <a href="/administration/users.create/" class="btn btn-default">\n                          <i class="fa fa-male"></i>\n                          New User\n                      </a>\n                    </div>\n                </div>\n\n            <div class="row">\n                <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">\n\n                    <div class="table-responsive">\n                        <table id="mytable" class="table">\n                            <thead>\n                                <th></th>\n                                <th>ID</th>\n                                <th>First</th>\n                                <th>Last</th>\n                                <th>Username</th>\n                                <th>Email</th>\n                                <th>Edit</th>\n                                <th>Delete</th>\n                            </thead>\n                            <tbody>\n\n')
         for user in users:
             __M_writer('                                        <tr>\n\n                                            <td><input type="checkbox" class="checkthis" /></td>\n                                            <td>')
             __M_writer(str( user.id ))
@@ -116,6 +116,6 @@ def render_administrationcontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "filename": "/Users/rodneycox/chf/administration/templates/users.html", "uri": "users.html", "line_map": {"66": 3, "107": 118, "72": 158, "108": 124, "78": 158, "84": 7, "27": 0, "92": 29, "93": 106, "94": 107, "95": 110, "96": 110, "97": 111, "98": 111, "99": 112, "100": 112, "101": 113, "102": 113, "39": 1, "104": 114, "105": 116, "106": 118, "103": 114, "44": 5, "109": 124, "110": 131, "111": 143, "49": 156, "91": 7, "117": 111, "54": 161, "60": 3}}
+{"uri": "users.html", "line_map": {"66": 161, "107": 121, "72": 3, "108": 127, "78": 3, "84": 7, "27": 0, "92": 29, "93": 109, "94": 110, "95": 113, "96": 113, "97": 114, "98": 114, "99": 115, "100": 115, "101": 116, "102": 116, "39": 1, "104": 117, "105": 119, "106": 121, "103": 117, "44": 5, "109": 127, "110": 134, "111": 146, "49": 159, "91": 7, "117": 111, "54": 164, "60": 161}, "source_encoding": "ascii", "filename": "/Users/rodneycox/chf/administration/templates/users.html"}
 __M_END_METADATA
 """

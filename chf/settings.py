@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'homepage',
     'base',
     'administration',
+    'bootstrap3_datetime',
 )
 
 MIDDLEWARE_CLASSES = (

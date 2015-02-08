@@ -1,8 +1,11 @@
+from django.core import validators
+from django.core import exceptions
 from django.conf import settings
 from django import forms
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.http import HttpRequest
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import permission_required
 from django_mako_plus.controller import view_function
 from django_mako_plus.controller.router import get_renderer
 import homepage.models as hmod
@@ -11,6 +14,7 @@ import random
 templater = get_renderer('administration')
 
 @view_function
+@permission_required('admin.delete_logentry', login_url='/administration/login/')
 def process_request(request):
   params = {}
 
@@ -42,6 +46,7 @@ def edit(request):
 
   if request.method == 'POST':
       form = UserEditForm(request.POST)
+      form.userid = user.id
       if form.is_valid():
         user.username = form.cleaned_data['username']
         user.first_name = form.cleaned_data['first_name']
@@ -63,13 +68,17 @@ class UserEditForm(forms.Form):
     username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
     email = forms.EmailField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
 
-
+    def clean_username(self):
+        user_count = hmod.SiteUser.objects.filter(username=self.cleaned_data['username']).exclude(id=self.userid).count()
+        if user_count >= 1:
+            raise forms.ValidationError("Username already exists.")
+        return self.cleaned_data['username']
 @view_function
 def create(request):
     params = {}
 
     user = hmod.SiteUser()
-
+    user.is_superuser = False
     user.save()
 
     return HttpResponseRedirect('/administration/users.edit/{}/'.format(user.id))

@@ -1,5 +1,14 @@
 
 /*add new user button*/
+#active > li> a{
+    font-family: lato;
+    font-size:  large;
+}
+
+#active > li > a > i{
+    font-size:  larger;
+}
+
 #page-wrapper > div > div:nth-child(1) > div.col-lg-2.col-lg-col-lg-offset-1{
 
 }

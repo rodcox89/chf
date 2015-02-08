@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423274207.027438
+_modified_time = 1423368680.488749
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/administration/templates/users.edit.html'
 _template_uri = 'users.edit.html'
@@ -28,9 +28,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        form = context.get('form', UNDEFINED)
         def administrationcontent():
             return render_administrationcontent(context._locals(__M_locals))
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'administrationcontent'):
@@ -46,9 +46,9 @@ def render_body(context,**pageargs):
 def render_administrationcontent(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        form = context.get('form', UNDEFINED)
         def administrationcontent():
             return render_administrationcontent(context)
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n  <div class="container-fluid">\n    <div class="row">\n      <div class="col-lg-4 col-lg-offset-4">\n\n\n\n\n              <form method="POST">\n                  <table>\n                    ')
         __M_writer(str( form ))
@@ -60,6 +60,6 @@ def render_administrationcontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/rodneycox/chf/administration/templates/users.edit.html", "source_encoding": "ascii", "line_map": {"35": 1, "53": 3, "54": 13, "55": 13, "40": 20, "27": 0, "61": 55, "46": 3}, "uri": "users.edit.html"}
+{"source_encoding": "ascii", "uri": "users.edit.html", "filename": "/Users/rodneycox/chf/administration/templates/users.edit.html", "line_map": {"35": 1, "53": 3, "54": 13, "55": 13, "40": 20, "27": 0, "61": 55, "46": 3}}
 __M_END_METADATA
 """

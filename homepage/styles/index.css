@@ -9,13 +9,17 @@
   	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
 }
 */
+body > div > div > div > div.navbar-header > a > img{
+    height: 95%;
+
+}
 .margin-top-20{
   margin-top: 20px;
 }
 body{
   background:url("../media/hawk.jpg");
   background-size:100%;
-  background-attachment: fixed; 
+  background-attachment: fixed;
   background-repeat:no-repeat;
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 40px;
@@ -119,7 +123,7 @@ body{
 .auth label.radio-inline,
 .auth .checkbox label,
 .auth label.checkbox-inline{
-    font-size: 14px;    
+    font-size: 14px;
 }
 
 .auth form .help-block{
@@ -137,7 +141,7 @@ body{
     color:#000;
 }
 /*multiple select*/
-.auth select[multiple] option, 
+.auth select[multiple] option,
 .auth select[size] {
   color:#fff!important;
 }
