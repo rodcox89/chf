@@ -13,7 +13,7 @@ import random
 templater = get_renderer('administration')
 
 @view_function
-@permission_required('admin.delete_logentry', login_url='/administration/login/')
+# @permission_required('admin.delete_logentry', login_url='/administration/login/')
 def process_request(request):
   params = {}
 
@@ -68,7 +68,7 @@ class eventEditForm(forms.Form):
     location = forms.CharField(required=True, max_length=300, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'description'}))
     start_date = forms.DateField(widget=DateTimePicker(options={"format": "YYYY-MM-DD", "pickTime": False}))
     end_date = forms.DateField(widget=DateTimePicker(options={"format": "YYYY-MM-DD", "pickTime": False}))
-    
+
 @view_function
 def create(request):
     params = {}
