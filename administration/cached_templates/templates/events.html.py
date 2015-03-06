@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423373860.005212
+_modified_time = 1425359577.895901
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/administration/templates/events.html'
 _template_uri = 'events.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['headlinks', 'administrationcontent', 'footlinks']
+_exports = ['headlinks', 'footlinks', 'administrationcontent']
 
 
 def _mako_get_namespace(context, name):
@@ -31,10 +31,10 @@ def render_body(context,**pageargs):
         def headlinks():
             return render_headlinks(context._locals(__M_locals))
         events = context.get('events', UNDEFINED)
-        def administrationcontent():
-            return render_administrationcontent(context._locals(__M_locals))
         def footlinks():
             return render_footlinks(context._locals(__M_locals))
+        def administrationcontent():
+            return render_administrationcontent(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'headlinks'):
@@ -69,6 +69,18 @@ def render_headlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_footlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def footlinks():
+            return render_footlinks(context)
+        __M_writer = context.writer()
+        __M_writer('\n    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>\n    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_administrationcontent(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -76,8 +88,7 @@ def render_administrationcontent(context,**pageargs):
         def administrationcontent():
             return render_administrationcontent(context)
         __M_writer = context.writer()
-        __M_writer('\n    <div id="wrapper">\n\n        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n            <div class="navbar-header">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="index.html">\n                    <img class="nav-logo" src="/static/homepage/media/chflatowhite.svg">\n\n                </a>\n            </div>\n\n            <div class="collapse navbar-collapse navbar-ex1-collapse">\n                <ul id="active" class="nav navbar-nav side-nav">\n                    <li>\n')
-        __M_writer('                    </li>\n                    <li>\n                        <a href="/administration/users/"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Users</a>\n                    </li>\n                    <li>\n                        <a href="/administration/locations/"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Locations</a>\n                    </li>\n                    <li class="selected">\n                        <div class="left-bar"></div>\n                        <a href="/administration/events/"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;&nbsp;&nbsp; Events\n                            <div class="arrow-left"></div>\n                        </a>\n                    </li>\n                    <li>\n                        <a href="/administration/items/"><i class="fa fa-list-ol"></i>&nbsp;&nbsp;&nbsp;&nbsp; Rental Items</a>\n                    </li>\n                    <li>\n                        <a href="/administration/products/"><i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp;&nbsp;Products </a>\n\n                    </li>\n                    <li>\n                        <a href="/administration/venues/"><i class="fa fa-qrcode"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Venues</a>\n                    </li>\n                </ul>\n\n                <ul class="nav navbar-nav navbar-right navbar-user">\n\n                    <li class="dropdown user-dropdown">\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Rodney Cox<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#"><i class="fa fa-user"></i> Profile</a>\n                            </li>\n                            <li><a href="#"><i class="fa fa-gear"></i> Settings</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="/administration/users.logout_view/"><i class="fa fa-power-off"></i> Log Out</a>\n                            </li>\n\n                        </ul>\n                    </li>\n                    <li class="divider-vertical"></li>\n                </ul>\n            </div>\n        </nav>\n\n        <div id="page-wrapper">\n\n\n           <div class="container">\n                <div class="row">\n                    <div class=" col-lg-5 col-lg-offset-1">\n                        <h1 class="">Events</h1>\n\n                    </div>\n                    <div class="col-lg-2 col-lg-offset-3">\n                      <a href="/administration/events.create/" class="btn btn-default">\n                          New Event\n                      </a>\n                    </div>\n                </div>\n\n            <div class="row">\n                <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">\n\n                    <div class="table-responsive">\n                        <table id="mytable" class="table">\n                            <thead>\n                                <th></th>\n                                <th>ID</th>\n                                <th>Name</th>\n                                <th>Description</th>\n                                <th>Location</th>\n                                <th>Start</th>\n                                <th>End</th>\n                                <th>Edit</th>\n                                <th>Delete</th>\n                            </thead>\n                            <tbody>\n\n')
+        __M_writer('\n    <div id="wrapper">\n\n\n\n        <div id="page-wrapper">\n\n\n           <div class="container">\n                <div class="row">\n                    <div class=" col-lg-5 col-lg-offset-1">\n                        <h1 class="">Events</h1>\n\n                    </div>\n                    <div class="col-lg-2 col-lg-offset-3">\n                      <a href="/administration/events.create/" class="btn btn-default">\n                          New Event\n                      </a>\n                    </div>\n                </div>\n\n            <div class="row">\n                <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">\n\n                    <div class="table-responsive">\n                        <table id="mytable" class="table">\n                            <thead>\n                                <th></th>\n                                <th>ID</th>\n                                <th>Name</th>\n                                <th>Description</th>\n                                <th>Location</th>\n                                <th>Start</th>\n                                <th>End</th>\n                                <th>Edit</th>\n                                <th>Delete</th>\n                            </thead>\n                            <tbody>\n\n')
         for event in events:
             __M_writer('                                        <tr>\n\n                                            <td><input type="checkbox" class="checkthis" /></td>\n                                            <td>')
             __M_writer(str( event.id ))
@@ -103,20 +114,8 @@ def render_administrationcontent(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_footlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def footlinks():
-            return render_footlinks(context)
-        __M_writer = context.writer()
-        __M_writer('\n    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>\n    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/rodneycox/chf/administration/templates/events.html", "source_encoding": "ascii", "uri": "events.html", "line_map": {"66": 3, "118": 112, "72": 7, "79": 7, "80": 29, "81": 108, "82": 109, "83": 112, "84": 112, "85": 113, "86": 113, "87": 114, "88": 114, "89": 115, "90": 115, "91": 116, "92": 116, "93": 117, "94": 117, "95": 120, "96": 120, "97": 126, "98": 126, "27": 0, "100": 145, "39": 1, "112": 160, "106": 160, "44": 5, "99": 133, "49": 158, "54": 163, "60": 3}}
+{"filename": "/Users/rodneycox/chf/administration/templates/events.html", "line_map": {"66": 3, "107": 58, "72": 98, "108": 64, "78": 98, "84": 7, "27": 0, "92": 46, "93": 47, "94": 50, "95": 50, "96": 51, "97": 51, "98": 52, "99": 52, "100": 53, "101": 53, "102": 54, "39": 1, "104": 55, "105": 55, "106": 58, "103": 54, "44": 5, "109": 64, "110": 71, "111": 83, "49": 96, "91": 7, "117": 111, "54": 101, "60": 3}, "source_encoding": "ascii", "uri": "events.html"}
 __M_END_METADATA
 """

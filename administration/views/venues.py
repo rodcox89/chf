@@ -13,8 +13,8 @@ import random
 templater = get_renderer('administration')
 
 @view_function
-# @permission_required('admin.delete_logentry', login_url='/administration/login/')
-# @permission_required('homepage.add_event', login_url='/administration/login/')
+@permission_required('admin.delete_logentry', login_url='/homepage/login/')
+@permission_required('homepage.add_event', login_url='/homepage/login/')
 def process_request(request):
   params = {}
 

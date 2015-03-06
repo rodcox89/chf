@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423377834.71226
+_modified_time = 1425358816.857158
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/administration/templates/users.html'
 _template_uri = 'users.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['footlinks', 'headlinks', 'administrationcontent']
+_exports = ['headlinks', 'footlinks', 'administrationcontent']
 
 
 def _mako_get_namespace(context, name):
@@ -28,13 +28,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        users = context.get('users', UNDEFINED)
         def headlinks():
             return render_headlinks(context._locals(__M_locals))
         def footlinks():
             return render_footlinks(context._locals(__M_locals))
         def administrationcontent():
             return render_administrationcontent(context._locals(__M_locals))
+        users = context.get('users', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'headlinks'):
@@ -57,18 +57,6 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_footlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def footlinks():
-            return render_footlinks(context)
-        __M_writer = context.writer()
-        __M_writer('\n    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>\n    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_headlinks(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -81,15 +69,26 @@ def render_headlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_footlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def footlinks():
+            return render_footlinks(context)
+        __M_writer = context.writer()
+        __M_writer('\n    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>\n    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_administrationcontent(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        users = context.get('users', UNDEFINED)
         def administrationcontent():
             return render_administrationcontent(context)
+        users = context.get('users', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n    <div id="wrapper">\n\n        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n            <div class="navbar-header">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="/homepage/index/">\n                    <img class="nav-logo" src="/static/homepage/media/chflatowhite.svg">\n\n                </a>\n            </div>\n\n            <div class="collapse navbar-collapse navbar-ex1-collapse">\n                <ul id="active" class="nav navbar-nav side-nav">\n                    <li>\n')
-        __M_writer('                    </li>\n                    <li class="selected">\n                        <div class="left-bar"></div>\n                        <a href="/administration/users/"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Users\n                            <div class="arrow-left"></div>\n                        </a>\n\n                    </li>\n                    <li>\n                        <a href="/administration/locations/"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Locations</a>\n                    </li>\n                    <li>\n                        <a href="/administration/events/"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;&nbsp;&nbsp; Events</a>\n                    </li>\n                    <li>\n                        <a href="/administration/items/"><i class="fa fa-list-ol"></i>&nbsp;&nbsp;&nbsp;&nbsp; Rental Items</a>\n                    </li>\n                    <li>\n                        <a href="/administration/products/"><i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp;&nbsp;Products </a>\n\n                    </li>\n                    <li>\n                        <a href="/administration/venues/"><i class="fa fa-qrcode"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Venues</a>\n                    </li>\n                </ul>\n\n                <ul class="nav navbar-nav navbar-right navbar-user">\n\n                    <li class="dropdown user-dropdown">\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Rodney Cox<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#"><i class="fa fa-user"></i> Profile</a>\n                            </li>\n                            <li><a href="#"><i class="fa fa-gear"></i> Settings</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="/administration/users.logout_view/"><i class="fa fa-power-off"></i> Log Out</a>\n                            </li>\n\n                        </ul>\n                    </li>\n                    <li class="divider-vertical"></li>\n                </ul>\n            </div>\n        </nav>\n\n        <div id="page-wrapper">\n\n\n           <div class="container">\n                <div class="row">\n                    <div class=" col-lg-5 col-lg-offset-1">\n                        <h1 class="">System Users</h1>\n\n                    </div>\n                    <div class="col-lg-2 col-lg-offset-3">\n                      <a href="/administration/users.create/" class="btn btn-default">\n                          <i class="fa fa-male"></i>\n                          New User\n                      </a>\n                    </div>\n                </div>\n\n            <div class="row">\n                <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">\n\n                    <div class="table-responsive">\n                        <table id="mytable" class="table">\n                            <thead>\n                                <th></th>\n                                <th>ID</th>\n                                <th>First</th>\n                                <th>Last</th>\n                                <th>Username</th>\n                                <th>Email</th>\n                                <th>Edit</th>\n                                <th>Delete</th>\n                            </thead>\n                            <tbody>\n\n')
+        __M_writer('\n\n    <div id="wrapper">\n\n        <div id="page-wrapper">\n\n\n           <div class="container">\n                <div class="row">\n                    <div class=" col-lg-5 col-lg-offset-1">\n                        <h1 class="">System Users</h1>\n\n                    </div>\n                    <div class="col-lg-2 col-lg-offset-3">\n                      <a href="/administration/users.create/" class="btn btn-default">\n                          <i class="fa fa-male"></i>\n                          New User\n                      </a>\n                    </div>\n                </div>\n\n            <div class="row">\n                <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">\n\n                    <div class="table-responsive">\n                        <table id="mytable" class="table">\n                            <thead>\n                                <th></th>\n                                <th>ID</th>\n                                <th>First</th>\n                                <th>Last</th>\n                                <th>Username</th>\n                                <th>Email</th>\n                                <th>Edit</th>\n                                <th>Delete</th>\n                            </thead>\n                            <tbody>\n\n')
         for user in users:
             __M_writer('                                        <tr>\n\n                                            <td><input type="checkbox" class="checkthis" /></td>\n                                            <td>')
             __M_writer(str( user.id ))
@@ -116,6 +115,6 @@ def render_administrationcontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "users.html", "line_map": {"66": 161, "107": 121, "72": 3, "108": 127, "78": 3, "84": 7, "27": 0, "92": 29, "93": 109, "94": 110, "95": 113, "96": 113, "97": 114, "98": 114, "99": 115, "100": 115, "101": 116, "102": 116, "39": 1, "104": 117, "105": 119, "106": 121, "103": 117, "44": 5, "109": 127, "110": 134, "111": 146, "49": 159, "91": 7, "117": 111, "54": 164, "60": 161}, "source_encoding": "ascii", "filename": "/Users/rodneycox/chf/administration/templates/users.html"}
+{"filename": "/Users/rodneycox/chf/administration/templates/users.html", "line_map": {"66": 3, "107": 63, "72": 97, "108": 63, "78": 97, "84": 7, "27": 0, "92": 45, "93": 46, "94": 49, "95": 49, "96": 50, "97": 50, "98": 51, "99": 51, "100": 52, "101": 52, "102": 53, "39": 1, "104": 55, "105": 57, "106": 57, "103": 53, "44": 5, "109": 70, "110": 82, "49": 95, "91": 7, "116": 110, "54": 100, "60": 3}, "source_encoding": "ascii", "uri": "users.html"}
 __M_END_METADATA
 """

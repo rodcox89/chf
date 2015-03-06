@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423184270.05858
+_modified_time = 1425420555.0363
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/administration/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content', 'footlinks', 'appheadlinks', 'administrationcontent']
+_exports = ['content', 'administrationcontent', 'footlinks', 'appheadlinks']
 
 
 def _mako_get_namespace(context, name):
@@ -30,12 +30,12 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def content():
             return render_content(context._locals(__M_locals))
+        def administrationcontent():
+            return render_administrationcontent(context._locals(__M_locals))
         def footlinks():
             return render_footlinks(context._locals(__M_locals))
         def appheadlinks():
             return render_appheadlinks(context._locals(__M_locals))
-        def administrationcontent():
-            return render_administrationcontent(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'appheadlinks'):
@@ -66,12 +66,25 @@ def render_content(context,**pageargs):
         def administrationcontent():
             return render_administrationcontent(context)
         __M_writer = context.writer()
-        __M_writer('\n  ')
+        __M_writer('\n<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n    <div class="navbar-header">\n        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n            <span class="sr-only">Toggle navigation</span>\n            <span class="icon-bar"></span>\n\n            <span class="icon-bar"></span>\n            <span class="icon-bar"></span>\n        </button>\n        <a class="navbar-brand" href="/homepage/index/">\n            <img class="nav-logo" src="/static/homepage/media/chflatowhite.svg">\n\n        </a>\n    </div>\n\n    <div class="collapse navbar-collapse navbar-ex1-collapse">\n        <ul id="active" class="nav navbar-nav side-nav">\n            <li>\n')
+        __M_writer('            </li>\n            <li class="selected">\n                <div class="left-bar"></div>\n                <a href="/administration/users/"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Users\n                    <div class="arrow-left"></div>\n                </a>\n\n            </li>\n            <li>\n                <a href="/administration/locations/"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Locations</a>\n            </li>\n            <li>\n                <a href="/administration/events/"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;&nbsp;&nbsp; Events</a>\n            </li>\n            <li>\n                <a href="/administration/items/"><i class="fa fa-list-ol"></i>&nbsp;&nbsp;&nbsp;&nbsp; Rental Items</a>\n            </li>\n            <li>\n                <a href="/administration/products/"><i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp;&nbsp;Products </a>\n\n            </li>\n            <li>\n                <a href="/administration/venues/"><i class="fa fa-qrcode"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Venues</a>\n            </li>\n        </ul>\n\n    </div>\n</nav>\n\n    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'administrationcontent'):
             context['self'].administrationcontent(**pageargs)
         
 
         __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_administrationcontent(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def administrationcontent():
+            return render_administrationcontent(context)
+        __M_writer = context.writer()
+        __M_writer('\n    <!-- _________________________The content of the admin will be here _____________________________ -->\n    ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -95,19 +108,7 @@ def render_appheadlinks(context,**pageargs):
         def appheadlinks():
             return render_appheadlinks(context)
         __M_writer = context.writer()
-        __M_writer('\n      <link rel="stylesheet" type="text/css" href="/static/administration/styles/thirdpartystylesheets/massive.css">\n      <link rel="stylesheet" type="text/css" href="/static/administration/styles/thirdpartystylesheets/font-awesome/css/font-awesome.min.css">\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_administrationcontent(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def administrationcontent():
-            return render_administrationcontent(context)
-        __M_writer = context.writer()
-        __M_writer('\n\n\n  ')
+        __M_writer('\n    <link rel="stylesheet" type="text/css" href="/static/administration/styles/thirdpartystylesheets/massive.css">\n    <link rel="stylesheet" type="text/css" href="/static/administration/styles/thirdpartystylesheets/font-awesome/css/font-awesome.min.css">\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -115,6 +116,6 @@ def render_administrationcontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "filename": "/Users/rodneycox/chf/administration/templates/base.htm", "uri": "base.htm", "line_map": {"98": 3, "69": 7, "40": 1, "74": 11, "45": 6, "110": 8, "80": 14, "104": 8, "50": 12, "116": 110, "86": 14, "55": 17, "27": 0, "92": 3, "61": 7}}
+{"uri": "base.htm", "filename": "/Users/rodneycox/chf/administration/templates/base.htm", "source_encoding": "ascii", "line_map": {"99": 61, "69": 7, "70": 27, "40": 1, "105": 3, "75": 58, "45": 6, "93": 61, "81": 56, "50": 59, "117": 111, "55": 64, "111": 3, "87": 56, "27": 0, "61": 7}}
 __M_END_METADATA
 """

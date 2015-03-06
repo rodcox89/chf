@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423264435.783624
+_modified_time = 1425404680.946546
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/administration/templates/login.html'
 _template_uri = 'login.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['administrationcontent']
+_exports = []
 
 
 def _mako_get_namespace(context, name):
@@ -28,29 +28,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def administrationcontent():
-            return render_administrationcontent(context._locals(__M_locals))
         form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n\n\n')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'administrationcontent'):
-            context['self'].administrationcontent(**pageargs)
-        
-
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_administrationcontent(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def administrationcontent():
-            return render_administrationcontent(context)
-        form = context.get('form', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n<div class="login">\n    <div class="row">\n        <div class="col-md-12">\n            <h3>Log In</h3>\n        </div>\n\n        <form class="form-horizontal signin-form" method="POST">\n            ')
+        __M_writer('\n\n\n\n<div class="login">\n    <div class="row">\n        <div class="col-md-12">\n            <h3>Log In</h3>\n        </div>\n\n        <form class="form-horizontal signin-form" method="POST">\n            ')
         __M_writer(str( form.non_field_errors() ))
         __M_writer('\n')
         for field in form:
@@ -67,6 +47,6 @@ def render_administrationcontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "login.html", "source_encoding": "ascii", "line_map": {"35": 1, "68": 62, "40": 28, "46": 4, "59": 15, "53": 4, "54": 12, "55": 12, "56": 13, "57": 14, "58": 15, "27": 0, "60": 17, "61": 17, "62": 21}, "filename": "/Users/rodneycox/chf/administration/templates/login.html"}
+{"line_map": {"33": 1, "34": 12, "35": 12, "36": 13, "37": 14, "38": 15, "39": 15, "40": 17, "41": 17, "42": 21, "48": 42, "27": 0}, "uri": "login.html", "source_encoding": "ascii", "filename": "/Users/rodneycox/chf/administration/templates/login.html"}
 __M_END_METADATA
 """

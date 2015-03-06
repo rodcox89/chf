@@ -28,14 +28,6 @@ subprocess.call([sys.executable, "manage.py", "migrate"])
 #initialize tables
 
 
-
-
-
-
-
-
-
-
 #initialize tables
 
 ##########################################################################################

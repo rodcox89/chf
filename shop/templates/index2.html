@@ -1,0 +1,15 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+
+%for item in items:
+<div class="item_container">
+    <img src="http://merzantiques.com/img/feature/Colt-Gatling-Gun.jpg" />
+    <a href="/shop/index2/${ item.id }"> ${ item.name } ${ item.id }</a>
+<button data-iid="${ item.id }" class="add_button" >Add to Cart</button>
+</div>
+
+%endfor
+
+</%block>
