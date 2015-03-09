@@ -5,6 +5,8 @@ from datetime import datetime
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 import random
 from django import forms
+from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 import homepage.models as hmod
 
 templater = get_renderer('shop')
@@ -12,21 +14,17 @@ templater = get_renderer('shop')
 @view_function
 def process_request(request):
 
-  template_vars = {
-  }
-
-  items = hmod.Item.objects.all()
-
-  template_vars['items'] = items
-
-  # item_id = request.urlparams[0]
-  # item = hmod.Item()
 
 
+    template_vars = {
+    }
+
+    item = hmod.Item.objects.get(id = request.urlparams[0])
+
+    template_vars['item'] = item
+    
 
 
 
 
-
-
-  return templater.render_to_response(request, 'index2.html', template_vars)
+    return templater.render_to_response(request, 'item_detail.html', template_vars)

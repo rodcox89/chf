@@ -11,27 +11,37 @@ templater = get_renderer('shop')
 
 @view_function
 def process_request(request):
+    if 'shopping_cart' not in request.session:
+        request.session['shopping_cart'] = {}
 
     template_vars = {}
 
         #shows the items in the shopping cart in a modal
-    cart_items = {}
-    final_cart = {}
-    cart_items = request.session['shopping_cart']
-    print('cart_items:')
-    print(cart_items)
-
+    cart_items = {}# create a new dictionary
+    cart_items = request.session['shopping_cart'] #assign session session to new  dictionary
+    current_cart = {}
     for key,value in cart_items.items():
 
+
         item = hmod.Item.objects.get(id=key)
-        name = item.name,
-        print(name,'corresponds to ',len(value))
+        ###############################create capsule############################### code
+        item_container = [] #creates capsule
+        item_container.append(item) #adds the item object
+        item_container.append(value) #quantity
+        ###############################capsule created############################### code
+
+        current_cart[item.id] = item_container
+
+    print('current_cart')
+    print(current_cart)
 
 
 
 
 
 
+
+    template_vars['current_cart'] = current_cart
 
 
 
@@ -48,23 +58,29 @@ def process_request(request):
 def add(request):
     if 'shopping_cart' not in request.session:
         request.session['shopping_cart'] = {}
-    iid = request.urlparams[0]
-    qty = request.urlparams[1]
-    print(iid)
-    print(qty)
-    print(request.session['shopping_cart'])
+    iid =  request.urlparams[0]
+    qty = int(request.urlparams[1])
+
 
     if iid in request.session['shopping_cart']:
         request.session['shopping_cart'][iid] += qty
         request.session.modified = True
+        print(request.session['shopping_cart'])
     else:
         request.session['shopping_cart'][iid] = qty
         request.session.modified = True
 
-    template_vars = {
-    }
 
 
 
+
+    return HttpResponseRedirect('/shop/shopping_cart/')
+
+@view_function
+def delete(request):
+    pid = request.urlparams[0]
+
+    del request.session['shopping_cart'][pid]
+    request.session.modified = True
 
     return HttpResponseRedirect('/shop/shopping_cart/')

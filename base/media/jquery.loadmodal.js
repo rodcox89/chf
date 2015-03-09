@@ -72,9 +72,9 @@
 
       appendToSelector: 'body',                // the element to append the dialog <div> code to.  Normally, this should be left as the 'body' element.
 
-      title: window.document.title || 'Dialog',// the title of the dialog
+      title: window.document.title ,// the title of the dialog
 
-      width: '400px',                          // 20%, 400px, or other css width
+      width: '800px',                          // 20%, 400px, or other css width
 
       dlgClass: 'fade',                        // CSS class(es) to add to the <div class="modal"> main dialog element.  This default makes the dialog fade in.
 

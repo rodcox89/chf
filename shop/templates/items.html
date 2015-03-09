@@ -1,0 +1,45 @@
+<%inherit file="base.htm" />
+
+<%block name="shopcontent">
+    <div class="items">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title">The Coolest Products Around</h2>
+                </div>
+                <div id="item-loop">
+                    %for item in items:
+                        <!-- Item #1 -->
+                        <div class="col-md-3 col-sm-4">
+                            <div class="item">
+                                <!-- Item image -->
+                                <div class="item-image">
+                                    <a href="/shop/item_detail/${ item.id }">
+                                        <img src="/static/shop/media/product_images/${ item.id }.jpg" />
+                                    </a>
+                                </div>
+                                <!-- Item details -->
+                                <div class="item-details">
+                                    <!-- Name -->
+                                    <!-- Use the span tag with the class "ico" and icon link (hot, sale, deal, new) -->
+                                    <h5>${ item.name }
+                                    </h5>
+                                    <div class="clearfix"></div>
+                                    <!-- Para. Note more than 2 lines. -->
+                                    <p>${ item.description }</p>
+                                    <hr />
+                                    <!-- Price -->
+
+                                    <div class="item-price pull-left">$${ item.value }</div>
+                                    <!-- Add to cart -->
+                                    <button data-iid="${ item.id }"  class="btn btn-default add_button pull-right">Add to Cart</button>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    %endfor
+                </div>
+            </div>
+        </div>
+    </div>
+</%block>

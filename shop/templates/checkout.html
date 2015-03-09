@@ -1,0 +1,163 @@
+<%inherit file="base.htm" />
+
+<%block name="shopcontent">
+
+    <div class="checkout">
+
+
+
+
+
+
+        <div class="container">
+
+            <div id="pansky" class="panel panel-default">
+
+                <div class="panel-body">
+                    <div class="container-fluid">
+                        <div class="col-lg-8 col-lg-offset-2">
+
+
+                            <!-- Checkout page title -->
+                            <h2 class="title"><i class="fa fa-shopping-cart"></i> Order Summary</h2>
+
+                            <div class="panel panel-default">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading">Panel heading</div>
+
+                                <!-- Table -->
+                                <table class="table">
+                                <tbody>
+                                    %for key,value in current_cart.items():
+                                    <%
+                                        grand_total = 0
+                                        price = int(value[0].value)
+                                        qty = value[1]
+
+                                        sub_total = (price * qty)
+                                        grand_total += sub_total
+                                    %>
+
+
+                                        <tr>
+                                            <td>${ value[1]}</td>
+                                            <td>${ value[0].name }</td>
+                                            <td>$${ value[0].value }</td>
+                                            <td>$${ sub_total }</td>
+                                            <td><a href="#" class="red delete_button" data-pid="${ value[0].id}"  }>Remove <i class="fa fa-minus-square"></i> </a></td>
+
+
+
+                                        </tr>
+                                    %endfor
+                                    <%
+                                        price = int(value[0].value)
+                                        qty = value[1]
+
+                                        sub_total = (price * qty)
+                                        grand_total += sub_total
+                                    %>
+
+                                </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Sub title -->
+                            <h5 class="title">Shipping &amp; Billing Details</h5>
+                            <!-- Address and Shipping details form -->
+                            <div class="form form-small">
+                                <form class="form-horizontal">
+                                    %for field in form:
+                                    <div class="form-group">
+
+                                        <label class="control-label col-md-2" for="name1">
+                                            ${ field.label }
+
+                                        </label>
+                                        <div class="col-md-6">
+                                            ${ field }
+                                        </div>
+                                    </div>
+                                    %endfor
+                                </form>
+                            </div>
+                            <hr />
+                            <!-- Payment details section -->
+                            <!-- Title -->
+                            <h5 class="title">Payment Details</h5>
+
+                            <!-- Radio buttons to select payment type -->
+
+                            <label class="radio-inline">
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked> Debit Card
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="2"> Credit Card
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="3"> Internet Banking
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optionsRadios" id="optionsRadios4" value="4"> Cash On Delivery
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optionsRadios" id="optionsRadios5" value="5"> Paypal
+                            </label>
+
+                            <hr />
+
+                            <div class="form form-small">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="cardnumber">Name</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" id="cardnumber" placeholder="Full Name on Card">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="cardnumber">Card Number</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" id="cardnumber" placeholder="0000-0000-0000-0000">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="expdate">Expiration Date</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="expdate" placeholder="09/19/2019">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="expdate">CVV</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control" id="expdate" placeholder="801">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Confirm order button -->
+                            <div class="row">
+                                <div class="col-md-4 col-md-offset-8">
+                                    <div class="pull-right">
+                                        <a href="/shop/confirmation/" class="btn btn-danger">Confirm Order</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+</%block>

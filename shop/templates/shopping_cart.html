@@ -2,17 +2,93 @@
 
 <%block name="content">
 
-<div class="">
+<div class="items">
+    <h2>Your Cart</h2>
+    <table class="table">
+    <thead>
+        <th>
+                Quantity
+        </th>
+        <th>
+                Name
+        </th>
+        <th>
+                Price
+        </th>
+        <th>
+                Item Total
+        </th>
+        <th>
+                Remove
+        </th>
+    </thead>
+    <tbody>
+        <% grand_total = 0%>
+
+
+    %for key,value in current_cart.items():
+
+        <%
+            price = int(value[0].value)
+            qty = value[1]
+
+            sub_total = (price * qty)
+            grand_total += sub_total
+        %>
+
+        <tr>
+            <td>${ value[1]}</td>
+            <td>${ value[0].name }</td>
+            <td>$${ value[0].value }</td>
+            <td>$${ sub_total }</td>
+            <td><a href="#" class="red delete_button" data-pid="${ value[0].id}"  }><i class="fa fa-minus-square"></i> </a></td>
+
+
+        </tr>
+    %endfor
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><h3>Grand Total</h3> </td>
+            <td></td>
+            <td>     <h3> $${ grand_total }</h3>     </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            %if request.user.is_authenticated():
+            <td>
+                <a href="/shop/checkout/" class="btn btn-primary checkout_button">Proceed to Checkout</a>
+            </td>
+            %else:
+            <td>
+                <h3>Please <a href="#" class="show_login_dialog" >Login</a>  to Checkout</h3>
+            </td>
+            %endif
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </tfoot>
+
+</table>
 
 </div>
 
-<!-- for item in items:
-<div class="item_container">
-    <img src="http://merzantiques.com/img/feature/Colt-Gatling-Gun.jpg" />
-    <a href="/shop/index2/${ item.id }"> ${ item.name } ${ item.id }</a>
-<button data-pid="${ item.id }" class="add_button" >Add to Cart</button>
-</div>
 
-endfor -->
+
+
 
 </%block>

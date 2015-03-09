@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425359577.895901
+_modified_time = 1425761261.688683
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/administration/templates/events.html'
 _template_uri = 'events.html'
@@ -30,11 +30,11 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def headlinks():
             return render_headlinks(context._locals(__M_locals))
-        events = context.get('events', UNDEFINED)
-        def footlinks():
-            return render_footlinks(context._locals(__M_locals))
         def administrationcontent():
             return render_administrationcontent(context._locals(__M_locals))
+        def footlinks():
+            return render_footlinks(context._locals(__M_locals))
+        events = context.get('events', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'headlinks'):
@@ -84,9 +84,9 @@ def render_footlinks(context,**pageargs):
 def render_administrationcontent(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        events = context.get('events', UNDEFINED)
         def administrationcontent():
             return render_administrationcontent(context)
+        events = context.get('events', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    <div id="wrapper">\n\n\n\n        <div id="page-wrapper">\n\n\n           <div class="container">\n                <div class="row">\n                    <div class=" col-lg-5 col-lg-offset-1">\n                        <h1 class="">Events</h1>\n\n                    </div>\n                    <div class="col-lg-2 col-lg-offset-3">\n                      <a href="/administration/events.create/" class="btn btn-default">\n                          New Event\n                      </a>\n                    </div>\n                </div>\n\n            <div class="row">\n                <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">\n\n                    <div class="table-responsive">\n                        <table id="mytable" class="table">\n                            <thead>\n                                <th></th>\n                                <th>ID</th>\n                                <th>Name</th>\n                                <th>Description</th>\n                                <th>Location</th>\n                                <th>Start</th>\n                                <th>End</th>\n                                <th>Edit</th>\n                                <th>Delete</th>\n                            </thead>\n                            <tbody>\n\n')
         for event in events:
@@ -116,6 +116,6 @@ def render_administrationcontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/rodneycox/chf/administration/templates/events.html", "line_map": {"66": 3, "107": 58, "72": 98, "108": 64, "78": 98, "84": 7, "27": 0, "92": 46, "93": 47, "94": 50, "95": 50, "96": 51, "97": 51, "98": 52, "99": 52, "100": 53, "101": 53, "102": 54, "39": 1, "104": 55, "105": 55, "106": 58, "103": 54, "44": 5, "109": 64, "110": 71, "111": 83, "49": 96, "91": 7, "117": 111, "54": 101, "60": 3}, "source_encoding": "ascii", "uri": "events.html"}
+{"filename": "/Users/rodneycox/chf/administration/templates/events.html", "source_encoding": "ascii", "line_map": {"66": 3, "107": 58, "72": 98, "108": 64, "78": 98, "84": 7, "27": 0, "92": 46, "93": 47, "94": 50, "95": 50, "96": 51, "97": 51, "98": 52, "99": 52, "100": 53, "101": 53, "102": 54, "39": 1, "104": 55, "105": 55, "106": 58, "103": 54, "44": 5, "109": 64, "110": 71, "111": 83, "49": 96, "91": 7, "117": 111, "54": 101, "60": 3}, "uri": "events.html"}
 __M_END_METADATA
 """

@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425361068.673923
+_modified_time = 1425758592.672129
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -56,6 +56,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"34": 1, "51": 3, "39": 199, "57": 51, "27": 0, "45": 3}, "uri": "index.html", "source_encoding": "ascii", "filename": "/Users/rodneycox/chf/homepage/templates/index.html"}
+{"uri": "index.html", "line_map": {"34": 1, "51": 3, "39": 199, "57": 51, "27": 0, "45": 3}, "filename": "/Users/rodneycox/chf/homepage/templates/index.html", "source_encoding": "ascii"}
 __M_END_METADATA
 """

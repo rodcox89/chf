@@ -111,8 +111,8 @@ for data in [
     e = hmod.Event()
     e.name = data[0]
     e.description = data[1]
-    e.start = data[2]
-    e.end = data[3]
+    e.start_date = data[2]
+    e.end_date = data[3]
     e.location = data[4]
     #save
     e.save()
@@ -127,7 +127,7 @@ for data in [
   ['Knife' , 'Stabbed Julius Caesar', '999','chf'],
   ['Rope' , 'Hung your mom', '1'],
   ['Backpack' , 'From Cotopaxi', '29','chf'],
-  ['Canteen' , '12 oz.', '5','chf'],
+  ['Canteen' , 'Parched? ...not anymore!', '5','chf'],
 ]:
 
     i = hmod.Item()
@@ -215,6 +215,32 @@ for data in [
 
     v.save()
     print(v)
+
+
+
+
+
+###############################rentals###############################
+
+#Delete old rentals
+hmod.Rentals.objects.all().delete()
+
+#Create new Rentals: name, rental, due
+for data in [
+  ['Breeches','2015-03-05','2015-03-10'],
+  ['Red Coat','2015-02-02','2015-03-06'],
+  ['Blue Coat','2015-01-02','2015-02-02'],
+  ['Hat','2015-01-02','2015-02-02'],
+]:
+
+    #set attributes
+    rr = hmod.Rentals()
+    rr.name = data[0]
+    rr.rental_date = data[1]
+    rr.due_date = data[2]
+    #save
+    rr.save()
+    print(rr)
 
 
 #runs server

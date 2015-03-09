@@ -1,0 +1,39 @@
+<%inherit file="base.htm" />
+
+<%block name="shopcontent">
+<div class="container">
+    <table class="table-condensed col-md-10 col-offset-1"><h2>Your Account Details<a href="#" class="edit_user button btn btn-primary btn-md" id="pencilcasing" data-pid="${ user.id }" data-title="Edit" data-toggle="modal"><span id="edit_icon" class="glyphicon glyphicon-pencil"></span></a></h2>
+
+
+
+            <th>Current Info</th>
+
+
+        <tbody>
+            <tr>
+                <td>${ user.first_name }</td>
+            </tr>
+            <tr>
+                <td>${ user.last_name }</td>
+            </tr>
+            <tr>
+                <td>${ user.username }</td>
+            </tr>
+            <tr>
+                <td>${ user.email }</td>
+            </tr>
+            <tr>
+                <td><a href="#" class="button btn btn-primary btn-sm change_password " >Change Password</a></td>
+            </tr>
+
+
+        </td>
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+</%block>

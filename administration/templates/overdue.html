@@ -1,0 +1,79 @@
+<%inherit file="base.htm" />
+
+<%block name="headlinks">
+
+</%block>
+
+<%block name="administrationcontent">
+    <div id="wrapper">
+
+
+
+        <div id="page-wrapper">
+
+
+           <div class="container">
+                <div class="row">
+                    <div class=" col-lg-5 col-lg-offset-1">
+                        <h1 class="">Overdue Rentals</h1>
+
+                    </div>
+                </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-8 col-lg-10 col-lg-offset-1">
+
+                    <div class="table-responsive">
+                        <table id="mytable" class="table">
+                            <thead>
+                                <th></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Rental Date</th>
+                                <th>Due Date </th>
+                            </thead>
+                            <tbody>
+
+                                        %for item in items:
+                                        <tr>
+
+                                            <td><input type="checkbox" class="checkthis" /></td>
+                                            <td>${ item.id }</td>
+                                            <td>${ item.name }</td>
+                                            <td>${ item.rental_date }</td>
+                                            <td>${ item.due_date }</td>
+
+
+                                        </tr>
+                                        %endfor
+
+
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                        ## <div class="clearfix"></div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    </div>
+</%block>
+
+<%block name="footlinks">
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+</%block>

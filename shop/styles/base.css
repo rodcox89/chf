@@ -1,3 +1,52 @@
 .body{
     margin-top: 0px;
 }
+
+body > nav > div > div.navbar-header > a > img{
+    height: 100%;
+}
+
+body > nav > div > div.navbar-header > a{
+    padding: 1%;
+}
+
+body > nav{
+    background-color: #FFFFFF;
+}
+
+body > nav
+
+#navbar > ul.nav.navbar-nav.navbar-right.navbar-user > li{
+  background-color: #FFFFFF;
+  border-right: solid 2px white;
+  color: black;
+}
+
+
+
+#cart{
+    color: black;
+}
+
+#navbar > ul.nav.navbar-nav.navbar-right.navbar-user > li > ul > ul > li > a > i{
+    color: black;
+}
+
+#navbar > ul.nav.navbar-nav.navbar-right.navbar-user > li > ul > ul > li > a{
+    color: black;
+}
+
+#navbar > ul > li > a{
+    color: black;
+    font-family: lato;
+    font-size: 18px;
+}
+#navbar > ul > li > :active{
+    background color: red;
+}
+
+
+#navbar > ul > li.active > a{
+
+    color: black;
+}

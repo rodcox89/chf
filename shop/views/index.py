@@ -1,4 +1,6 @@
 from django.conf import settings
+import django.contrib.auth
+from django.contrib.auth import authenticate, login, logout
 from django_mako_plus.controller import view_function
 from django_mako_plus.controller.router import get_renderer
 from datetime import datetime
@@ -15,6 +17,7 @@ def process_request(request):
   template_vars = {
   }
 
+
   # form = LoginForm()
   # if request.method == "POST":
   #     form = LoginForm(request.POST)
@@ -23,58 +26,62 @@ def process_request(request):
   #         pass
   #
   # template_vars['form'] = form
-  return templater.render_to_response(request, 'index.html', template_vars)
+  return HttpResponseRedirect('/shop/items/')
 
 
 
 
 @view_function
 def loginform(request):
+    template_vars = {}
 
-  template_vars = {
-  }
+    form = LoginForm()
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+            login(request,user)
 
-  form = LoginForm()
-  if request.method == "POST":
-      form = LoginForm(request.POST)
-      if form.is_valid():
-          #authenticate and login
-          return HttpResponse('''
-          <script>
-            window.location.href = window.location.href;
-          </script>
+            return HttpResponse('''
+            <script>
+                window.location.href = window.location.href;
+            </script>
+            ''')
 
-          ''')
 
-  template_vars['form'] = form
-  return templater.render_to_response(request, 'index.loginform.html', template_vars)
+    template_vars['form'] = form
+    return templater.render_to_response(request, 'index.loginform.html', template_vars)
 
 
 class LoginForm(forms.Form):
     username = forms.CharField()
-    password = forms.CharField()
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+
+    def clean(self):
+
+        user = authenticate(username=self.cleaned_data.get('username', ''), password=self.cleaned_data.get('password', ''))
+        if user == None:
+            raise forms.ValidationError("Username/password is not valid")
+        return self.cleaned_data
 
 
 
+@view_function
+def search(request):
 
-# @view_function
-# def check_username(request):
-#   name = request.REQUEST.get('username')
-#
-#   user = hmod.SiteUser.objects.filter(username=name)
-#   print(user)
-#   print(name)
-#
-#   if len(user)==0:
-#       print('ohhh baby')
-#       return HttpResponse('good')
-#
-#
-#   # if user is None:
-#   #     return HttpResponse('You can use this username')
-#   #
-#   # elif username == hmod.SiteUser.object.get(username==username):
-#   #     return HttpResponse('username already in use')
-#
-#
-#   return HttpResponse('hey world')
+    params = {}
+
+    searchfor = request.REQUEST.get('input')
+    print(searchfor)
+    items = []
+    if searchfor != '':
+        if request.method == 'POST':
+            items = hmod.Item.objects.filter(name = searchfor)
+            print(items)
+    else:
+        items = hmod.Item.objects.all()
+
+
+    params['items'] = items
+
+    return templater.render_to_response(request, 'items.search.html', params)

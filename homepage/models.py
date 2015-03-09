@@ -94,3 +94,8 @@ class Venue(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class Rentals(models.Model):
+	name = models.CharField(max_length=30)
+	rental_date = models.DateField(blank=True, null=True)
+	due_date = models.DateField(blank=True, null=True)

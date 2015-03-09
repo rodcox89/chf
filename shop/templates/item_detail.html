@@ -1,0 +1,38 @@
+<%inherit file="base.htm" />
+
+<%block name="shopcontent">
+
+<div class="container">
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">${ item.name }</h3>
+          </div>
+          <div class="panel-body">
+              <img src="/static/shop/media/product_images/${ item.id }.jpg"  />
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+
+            <p>
+                $${ item.value }
+            </p>
+            <button data-iid="${ item.id }"  class="btn btn-default add_button pull-right">Add to Cart</button>
+            <select id="quantity" name="Item Quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+            </select>
+            </div>
+            <p>
+                ${ item.description }
+            </p>
+          </div>
+        </div>
+
+</div>
+</%block>

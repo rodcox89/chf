@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425421884.223208
+_modified_time = 1425795829.752253
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/homepage/templates/signup.html'
 _template_uri = 'signup.html'
@@ -54,9 +54,9 @@ def render_content(context,**pageargs):
         __M_writer(str( form.non_field_errors() ))
         __M_writer('\n')
         for field in form:
-            __M_writer('            <div class="form-group col-lg-12">\n                <!-- <label class="col-md-3 control-label">')
+            __M_writer('            <div class="form-group col-lg-12">\n                <label class="col-md-3 control-label">')
             __M_writer(str(field.label))
-            __M_writer('</label> -->\n                <div class="col-lg-12">\n                    ')
+            __M_writer('</label>\n                <div class="col-lg-12">\n                    ')
             __M_writer(str(field))
             __M_writer('\n                </div>\n            </div>\n')
         __M_writer('            <div class="form-group col-md-12">\n                <button type="submit" class="btn btn-primary">Signup</button><br>\n            </div>\n        </form>\n    </div>\n\n    </div>\n</div>\n')
@@ -67,6 +67,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "signup.html", "filename": "/Users/rodneycox/chf/homepage/templates/signup.html", "source_encoding": "ascii", "line_map": {"35": 1, "68": 62, "40": 28, "46": 4, "59": 14, "53": 4, "54": 11, "55": 11, "56": 12, "57": 13, "58": 14, "27": 0, "60": 16, "61": 16, "62": 20}}
+{"line_map": {"35": 1, "68": 62, "40": 28, "46": 4, "59": 14, "53": 4, "54": 11, "55": 11, "56": 12, "57": 13, "58": 14, "27": 0, "60": 16, "61": 16, "62": 20}, "uri": "signup.html", "source_encoding": "ascii", "filename": "/Users/rodneycox/chf/homepage/templates/signup.html"}
 __M_END_METADATA
 """
