@@ -25,7 +25,8 @@ class Product(models.Model):
 	name = models.CharField(max_length=30)
 	description = models.CharField(max_length=144)
 	category = models.CharField(max_length=144)
-	current_price = models.DecimalField(max_digits=6,decimal_places=2, null=True)
+	current_price = models.DecimalField(max_di
+	s=6,decimal_places=2, null=True)
 	is_active = models.NullBooleanField(default=True, blank=True, null=True)
 
 	def __str__(self):
