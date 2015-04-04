@@ -22,17 +22,23 @@ $(function() {
 
         var iid = $(this).attr('data-iid');
         var qty = $('#quantity').val();
+        var product_boolean = $(this).attr('data-product');
+        console.log(iid);
+        console.log(product_boolean);
 
         if(! qty){
             qty = 1;
         }
 
         $.loadmodal({
-            url: "/shop/shopping_cart.add/"+ iid + "/" + qty,
+            url: "/shop/shopping_cart.add/"+ iid + "/" + qty + "/" + product_boolean,
 
         });
 
     });
+
+
+
 
 
     $('#search_button').click(function(){

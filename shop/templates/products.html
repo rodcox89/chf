@@ -5,34 +5,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title">Rentable Items</h2>
+                    <h2 class="title">Products for Sale</h2>
                 </div>
                 <div id="item-loop">
-                    %for item in items:
+                    %for product in products:
                         <!-- Item #1 -->
                         <div class="col-md-3 col-sm-4">
                             <div class="item">
                                 <!-- Item image -->
                                 <div class="item-image">
-                                    <a href="/shop/item_detail/${ item.id }">
-                                        <img src="/static/shop/media/product_images/${ item.id }.jpg" />
+                                    <a href="/shop/item_detail/${ product.id }">
+                                        <img src="/static/shop/media/product_images/${ product.id }.jpg" />
                                     </a>
                                 </div>
                                 <!-- Item details -->
                                 <div class="item-details">
                                     <!-- Name -->
                                     <!-- Use the span tag with the class "ico" and icon link (hot, sale, deal, new) -->
-                                    <h5>${ item.name }
+                                    <h5>${ product.name }
                                     </h5>
                                     <div class="clearfix"></div>
                                     <!-- Para. Note more than 2 lines. -->
-                                    <p>${ item.description }</p>
+                                    <p>${ product.description }</p>
                                     <hr />
                                     <!-- Price -->
 
-                                    <div class="item-price pull-left">Daily Rental<br> Price:$${ item.rental_price }</div>
+                                    <div class="item-price pull-left">$${ product.current_price }</div>
                                     <!-- Add to cart -->
-                                    <button data-iid="${ item.id }" data-product="false"  class="btn btn-default add_button pull-right">Add to Cart</button>
+                                    <button data-iid="${ product.id }" data-product="true" class="btn btn-default add_button pull-right">Add to Cart</button>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>

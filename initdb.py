@@ -124,17 +124,18 @@ hmod.Item.objects.all().delete()
 
 #Create new items: name, description, value
 for data in [
-  ['Knife' , 'Stabbed Julius Caesar', '999','chf'],
-  ['Rope' , 'Hung your mom', '1'],
-  ['Backpack' , 'From Cotopaxi', '29','chf'],
-  ['Canteen' , 'Parched? ...not anymore!', '5','chf'],
+  ['Knife' , 'Stabbed Julius Caesar', '999','chf','15'],
+  ['Rope' , 'Tie stuff up', '1','chf','3'],
+  ['Backpack' , 'From Cotopaxi', '29','chf','8'],
+  ['Canteen' , 'Parched? ...not anymore!', '5','chf','2'],
 ]:
 
     i = hmod.Item()
     i.name = data[0]
     i.description = data[1]
     i.value = data[2]
-    i.organization = [3]
+    i.organization = data[3]
+    i.rental_price = data[4]
 
     i.save()
     print(i)
@@ -146,7 +147,7 @@ hmod.Product.objects.all().delete()
 
 #Create new Products: name, description, category, current_price
 for data in [
-  ['Poem Journal', 'Jot down anything that comes to your mind', 'Crafts', '14'],
+  ['Poem Journal', 'made for jotting', 'Crafts', '14'],
   ['Ice', 'Cool off with this stuff', 'Household', '2'],
   ['Quil', 'Birds of a feather', 'Collectors', '8'],
   ['Abicus', 'Count better than anyone', 'Business', '13'],

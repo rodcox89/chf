@@ -23,24 +23,24 @@
         </th>
     </thead>
     <tbody>
-        <% grand_total = 0%>
+        <% purchase_total = 0%>
 
 
     %for key,value in current_cart.items():
 
         <%
-            price = int(value[0].value)
+            price = int(value[0].current_price)
             qty = value[1]
 
-            sub_total = (price * qty)
-            grand_total += sub_total
+            product_sub_total = (price * qty)
+            purchase_total += product_sub_total
         %>
 
         <tr>
             <td>${ value[1]}</td>
             <td>${ value[0].name }</td>
-            <td>$${ value[0].value }</td>
-            <td>$${ sub_total }</td>
+            <td>$${ value[0].current_price }</td>
+            <td>$${ product_sub_total }</td>
             <td><a href="#" class="red delete_button" data-pid="${ value[0].id}"  }><i class="fa fa-minus-square"></i> </a></td>
 
 
@@ -48,17 +48,71 @@
     %endfor
     </tbody>
     <tfoot>
+    <tr>
+            <td></td>
+            <td></td>
+            <td> </td>
+            <td><h3>Purchase Total</h3></td>
+            <td><h3>$${ purchase_total }</h3></td>
+        </tr>
+
+    </tfoot>
+
+</table>
+</div>
+<div class="items">
+
+
+    <table class="table">
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+                Daily Rate
+        </th>
+        <th>
+                Monthly Price
+        </th>
+
+        <th>
+                Remove
+        </th>
+    </thead>
+    <tbody>
+        <% rental_total = 0%>
+
+
+
+    %for rental in rental_cart:
+
+        <%
+            month = rental.rental_price * 30
+            rental_total +=rental.rental_price
+        %>
+
         <tr>
+            <td>${ rental.name}</td>
+            <td>$${ rental.rental_price }</td>
+            <td>$${ month }</td>
+
+            <td><a href="#" class="red delete_button" data-pid="${ rental.id}"  }><i class="fa fa-minus-square delete "></i> </a></td>
+
+
+        </tr>
+    %endfor
+    </tbody>
+    <tfoot>
+        <tr>
+
             <td></td>
             <td></td>
-            <td><h3>Grand Total</h3> </td>
-            <td></td>
-            <td>     <h3> $${ grand_total }</h3>     </td>
+            <td><h3>Rental Total</h3></td>
+
+            <td>     <h3> $${ rental_total }</h3>     </td>
         </tr>
         <tr>
-            <td>
 
-            </td>
             <td>
 
             </td>
@@ -66,6 +120,7 @@
             <td>
                 <a href="/shop/checkout/" class="btn btn-primary checkout_button">Proceed to Checkout</a>
             </td>
+
             %else:
             <td>
                 <h3>Please <a href="#" class="show_login_dialog" >Login</a>  to Checkout</h3>

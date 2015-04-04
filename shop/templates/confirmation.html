@@ -2,4 +2,158 @@
 
 <%block name="shopcontent">
 <h1>Thanks, We'll get your stuff to you ASAP!!!</h1>
+<div class="items">
+    <h2>Success</h2>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Purchase Summary</div>
+
+        <!-- Table -->
+        <table class="table">
+            <th>
+
+                <td>
+                    Product
+                </td>
+                <td>
+                    Unit Price
+                </td>
+                <td>
+                    Extended Price
+                </td>
+            </th>
+        <tbody>
+            %for key,value in current_cart.items():
+            <%
+                grand_total = 0
+                price = int(value[0].value)
+                qty = value[1]
+
+                sub_total = (price * qty)
+                grand_total += sub_total
+            %>
+
+
+                <tr>
+                    <td>${ value[1]}</td>
+                    <td>${ value[0].name }</td>
+                    <td>$${ value[0].value }</td>
+                    <td>$${ sub_total }</td>
+                    <td><a href="#" class="red delete_button" data-pid="${ value[0].id}"  }>Remove <i class="fa fa-minus-square"></i> </a></td>
+
+
+
+                </tr>
+            %endfor
+            <%
+                price = int(value[0].value)
+                qty = value[1]
+
+                sub_total = (price * qty)
+                grand_total += sub_total
+            %>
+
+        </tbody>
+        </table>
+    </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Rental Summary</div>
+
+        <!-- Table -->
+        <table class="table">
+            <th>
+                <td>
+                    Item
+                </td>
+                <td>
+                    Daily  Price
+                </td>
+                <td>
+                    30 Day Price
+                </td>
+            </th>
+        <tbody>
+            <% rental_total=0%>
+            %for rental in rental_cart:
+            <%
+            month = rental.rental_price * 30
+            rental_total +=rental.rental_price
+            %>
+
+
+                <tr>
+                    <td> </td>
+                    <td>${ rental.name }</td>
+                    <td>$${ rental.rental_price }</td>
+                    <td>$${ month }</td>
+                    <td><a href="#" class="red delete_button" data-pid="${ value[0].id}"  }>Remove <i class="fa fa-minus-square"></i> </a></td>
+
+
+
+                </tr>
+            %endfor
+            <%
+                price = int(value[0].value)
+                qty = value[1]
+
+                sub_total = (price * qty)
+                grand_total += sub_total
+            %>
+
+        </tbody>
+        </table>
+    </div>
+
+    <table class="table">
+    <thead>
+        <th>
+                Quantity
+        </th>
+        <th>
+                Name
+        </th>
+        <th>
+                Price
+        </th>
+        <th>
+                Item Total
+        </th>
+        <th>
+                Remove
+        </th>
+    </thead>
+    <tbody>
+
+
+    %for key,value in confirmation.items():
+
+
+
+        <tr>
+            <td>${ key}</td>
+            <td>
+                ${ value }
+            </td>
+
+
+
+
+        </tr>
+    %endfor
+    </tbody>
+    <tfoot>
+    <tr>
+            <td></td>
+            <td></td>
+            <td> </td>
+            <td><h3></h3></td>
+            <td><h3></h3></td>
+        </tr>
+
+    </tfoot>
+
+</table>
+</div>
+
 </%block>

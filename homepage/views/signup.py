@@ -51,21 +51,22 @@ def process_request(request):
 
     params['form'] = form
 
-    #user = hmod.SiteUser.objects.get(id=???)
 
     return templater.render_to_response(request, 'signup.html', params)
 
 
 class SignupForm(forms.Form):
-    first_name = forms.CharField(required=True, max_length=100,widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
-    password = forms.CharField(required=True, max_length=100, widget=forms.PasswordInput)
-    last_name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
     username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+    password = forms.CharField(required=True, max_length=100, widget=forms.PasswordInput)
+    first_name = forms.CharField(required=True, max_length=100,widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
+    last_name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
     email = forms.EmailField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
 
     def clean_username(self):
         user = hmod.SiteUser.objects.filter(username=self.cleaned_data['username'])
+        print(user.count())
         if user.count() > 0:
+            print("this error was raised")
             raise forms.ValidationError("Username already exists.")
         return self.cleaned_data['username']
 

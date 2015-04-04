@@ -3,6 +3,10 @@
 
 }
 
+.delete{
+    color: firebrick;
+}
+
 #pansky > div > div > div > div.panel.panel-default > table > tbody > tr > td > a > i{
     color: firebrick;
 }

@@ -6,7 +6,7 @@ $(#cart_button).click( function() {
 
     var test = 1;
 
-    console.log(test);
+    
 
  });
 

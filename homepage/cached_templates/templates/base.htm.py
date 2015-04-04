@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425760666.87383
+_modified_time = 1427944571.663455
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/homepage/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['footlinks', 'content', 'userheadlinks']
+_exports = ['footlinks', 'userheadlinks', 'content']
 
 
 from django_mako_plus.controller import static_files 
@@ -20,14 +20,14 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         self = context.get('self', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        def footlinks():
-            return render_footlinks(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        def footlinks():
+            return render_footlinks(context._locals(__M_locals))
         def userheadlinks():
             return render_userheadlinks(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -44,7 +44,7 @@ def render_body(context,**pageargs):
         __M_writer('\n\n    <!-- Latest compiled and minified JavaScript -->\n\n    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>\n    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>\n    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>\n    <script src="/static/base/media/jquery.form.js"></script>\n    <script src="/static/base/media/jquery.loadmodal.js"></script>\n\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n     ')
         __M_writer(str( static_renderer.get_template_css(request, context)  ))
         __M_writer('\n')
-        __M_writer('\n\n  </head>\n  <body>\n      <div class="navbar">\n        <!-- Static navbar -->\n        <div class=\'navbar navbar-inverse navbar-inner\'>\n            <div class=\'container-fluid\'>\n                <div class="navbar-header">\n\n                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">\n                        <span class="sr-only">Toggle navigation</span>\n                        <span class="icon-bar"></span>\n                        <span class="icon-bar"></span>\n                        <span class="icon-bar"></span>\n                    </button>\n                    <a class="navbar-brand" href="/homepage/index/" style="\n                                                      padding-top: 5px;\n                                                      width: 430px;\n                                                      height: 50px;\n                                                      padding-bottom: -10;\n                                                      margin-top: -10;\n                                                      border-top-width: 10px;\n                                                      padding-bottom: 0px;\n                                                  ">\n                        <img class="nav-logo" src="/static/homepage/media/newLogowhitethe.svg"/>\n\n                    </a>\n                </div>\n                <div id="navbar" class="navbar-collapse collapse">\n                    <ul class="nav navbar-nav">\n                        <li><a href="/about/">About</a>\n                        </li>\n                        <li><a href="/festivals/">Festivals</a>\n                        </li>\n                        <li><a href="/rentals/">Rentals</a>\n                        </li>\n                        <li>\n                            <a href="/shop/items/">Store</a>\n                        </li>\n                        <li>\n                            <a href="/administration/users/">Users</a>\n                        </li>\n                    </ul>\n                    <ul class="nav navbar-nav navbar-right navbar-user">\n                        <ul class="nav navbar-nav navbar-right navbar-user">\n')
+        __M_writer('\n\n  </head>\n  <body>\n      <div class="navbar">\n        <!-- Static navbar -->\n        <div class=\'navbar navbar-inverse navbar-inner\'>\n            <div class=\'container-fluid\'>\n                <div class="navbar-header">\n\n                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">\n                        <span class="sr-only">Toggle navigation</span>\n                        <span class="icon-bar"></span>\n                        <span class="icon-bar"></span>\n                        <span class="icon-bar"></span>\n                    </button>\n                    <a class="navbar-brand" href="/homepage/index/" style="\n                                                      padding-top: 5px;\n                                                      width: 430px;\n                                                      height: 50px;\n                                                      padding-bottom: -10;\n                                                      margin-top: -10;\n                                                      border-top-width: 10px;\n                                                      padding-bottom: 0px;\n                                                  ">\n                        <img class="nav-logo" src="/static/homepage/media/newLogowhitethe.svg"/>\n\n                    </a>\n                </div>\n                <div id="navbar" class="navbar-collapse collapse">\n                    <ul class="nav navbar-nav">\n                        <li><a href="/festivals/">Festivals</a>\n                        </li>\n                        <li><a href="/shop/items">Rental Shop</a>\n                        </li>\n                        <li>\n                            <a href="/shop/products/">Products</a>\n                        </li>\n                        <li>\n                            <a href="/administration/users/">Admin</a>\n                        </li>\n                    </ul>\n                    <ul class="nav navbar-nav navbar-right navbar-user">\n                        <ul class="nav navbar-nav navbar-right navbar-user">\n')
         if request.user.is_authenticated():
             __M_writer('                                <li class="dropdown user-dropdown">\n                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>')
             __M_writer(str( user.get_short_name() ))
@@ -81,18 +81,6 @@ def render_footlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content():
-            return render_content(context)
-        __M_writer = context.writer()
-        __M_writer('\n\n    ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_userheadlinks(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -105,8 +93,20 @@ def render_userheadlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content():
+            return render_content(context)
+        __M_writer = context.writer()
+        __M_writer('\n\n    ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/rodneycox/chf/homepage/templates/base.htm", "source_encoding": "ascii", "line_map": {"64": 176, "65": 177, "66": 177, "72": 174, "96": 23, "78": 174, "108": 102, "16": 4, "18": 0, "84": 168, "90": 168, "32": 2, "33": 4, "34": 5, "102": 23, "38": 5, "39": 15, "44": 25, "45": 36, "46": 36, "47": 38, "48": 84, "49": 85, "50": 86, "51": 86, "52": 98, "53": 99, "54": 112, "59": 170}, "uri": "base.htm"}
+{"filename": "/Users/rodneycox/chf/homepage/templates/base.htm", "source_encoding": "ascii", "uri": "base.htm", "line_map": {"64": 174, "65": 175, "66": 175, "72": 172, "96": 166, "78": 172, "108": 102, "16": 4, "18": 0, "84": 23, "90": 23, "32": 2, "33": 4, "34": 5, "102": 166, "38": 5, "39": 15, "44": 25, "45": 36, "46": 36, "47": 38, "48": 82, "49": 83, "50": 84, "51": 84, "52": 96, "53": 97, "54": 110, "59": 168}}
 __M_END_METADATA
 """

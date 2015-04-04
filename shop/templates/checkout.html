@@ -23,10 +23,22 @@
 
                             <div class="panel panel-default">
                                 <!-- Default panel contents -->
-                                <div class="panel-heading">Panel heading</div>
+                                <div class="panel-heading">Purchase Summary</div>
 
                                 <!-- Table -->
                                 <table class="table">
+                                    <th>
+
+                                        <td>
+                                            Product
+                                        </td>
+                                        <td>
+                                            Unit Price
+                                        </td>
+                                        <td>
+                                            Extended Price
+                                        </td>
+                                    </th>
                                 <tbody>
                                     %for key,value in current_cart.items():
                                     <%
@@ -61,88 +73,182 @@
                                 </tbody>
                                 </table>
                             </div>
+                            <div class="panel panel-default">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading">Rental Summary</div>
 
-                            <!-- Sub title -->
-                            <h5 class="title">Shipping &amp; Billing Details</h5>
-                            <!-- Address and Shipping details form -->
-                            <div class="form form-small">
-                                <form class="form-horizontal">
-                                    %for field in form:
-                                    <div class="form-group">
+                                <!-- Table -->
+                                <table class="table">
+                                    <th>
+                                        <td>
+                                            Item
+                                        </td>
+                                        <td>
+                                            Daily  Price
+                                        </td>
+                                        <td>
+                                            30 Day Price
+                                        </td>
+                                    </th>
+                                <tbody>
+                                    <% rental_total=0%>
+                                    %for rental in rental_cart:
+                                    <%
+                                    month = rental.rental_price * 30
+                                    rental_total +=rental.rental_price
+                                    %>
 
-                                        <label class="control-label col-md-2" for="name1">
-                                            ${ field.label }
 
-                                        </label>
-                                        <div class="col-md-6">
-                                            ${ field }
-                                        </div>
-                                    </div>
+                                        <tr>
+                                            <td> </td>
+                                            <td>${ rental.name }</td>
+                                            <td>$${ rental.rental_price }</td>
+                                            <td>$${ month }</td>
+                                            <td><a href="#" class="red delete_button" data-pid="${ value[0].id}"  }>Remove <i class="fa fa-minus-square"></i> </a></td>
+
+
+
+                                        </tr>
                                     %endfor
-                                </form>
+                                    <%
+                                        price = int(value[0].value)
+                                        qty = value[1]
+
+                                        sub_total = (price * qty)
+                                        grand_total += sub_total
+                                    %>
+
+                                </tbody>
+                                </table>
                             </div>
+
                             <hr />
                             <!-- Payment details section -->
                             <!-- Title -->
-                            <h5 class="title">Payment Details</h5>
 
                             <!-- Radio buttons to select payment type -->
 
-                            <label class="radio-inline">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked> Debit Card
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="2"> Credit Card
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="3"> Internet Banking
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="optionsRadios" id="optionsRadios4" value="4"> Cash On Delivery
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="optionsRadios" id="optionsRadios5" value="5"> Paypal
-                            </label>
 
-                            <hr />
 
-                            <div class="form form-small">
-                                <form class="form-horizontal">
+
+                             <div class="form form-small">
+                                <form class="form-horizontal" method="POST">
+                                    <!-- Sub title -->
+                                    <h4 class="title">Shipping &amp; Billing Details</h4>
+                                    <br>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="cardnumber">First</label>
+                                        <div class="col-md-8">
+                                            ${ checkout_form['First']}
+                                            ${ checkout_form['First'].errors}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="cardnumber">Last</label>
+                                        <div class="col-md-8">
+                                            ${ checkout_form['Last']}
+                                            ${ checkout_form['Last'].errors}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="cardnumber">Address</label>
+                                        <div class="col-md-8">
+                                            ${ checkout_form['Address']}
+                                            ${ checkout_form['Address'].errors}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="cardnumber">City</label>
+                                        <div class="col-md-6">
+                                            ${ checkout_form['City']}
+                                            ${ checkout_form['City'].errors}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="cardnumber">State</label>
+                                        <div class="col-md-6">
+                                            ${ checkout_form['State']}
+                                            ${ checkout_form['State'].errors}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="cardnumber">Zip</label>
+                                        <div class="col-md-4">
+                                            ${ checkout_form['Zip']}
+                                            ${ checkout_form['Zip'].errors}
+                                        </div>
+                                    </div>
+                                    <!-- Address and Shipping details form -->
+                                    <div class="form form-small">
+                                            <!-- for field in shipping_form: -->
+                                            <div class="form-group">
+
+                                                <label class="control-label col-md-2" for="name1">
+                                                    <!-- { field.label } -->
+
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <!-- { field } -->
+                                                </div>
+                                            </div>
+                                            <!-- endfor -->
+                                    </div>
+
+                                    <hr />
+                                    <h4 class="title">Payment Details</h4>
+                                    <br>
+
+
+                                    <!-- _________________________all form data goes below here_____________________________ -->
                                     <div class="form-group">
                                         <label class="control-label col-md-2" for="cardnumber">Name</label>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" id="cardnumber" placeholder="Full Name on Card">
+                                        <div class="col-md-9">
+                                            ${ checkout_form['Name']}
+                                            ${ checkout_form['Name'].errors}
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-2" for="cardnumber">Card Number</label>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" id="cardnumber" placeholder="0000-0000-0000-0000">
+                                        <div class="col-md-9">
+                                            ${ checkout_form['CardNumber']}
+                                            ${ checkout_form['CardNumber'].errors}
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-2" for="expdate">Expiration Date</label>
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" id="expdate" placeholder="09/19/2019">
+                                        <label class="control-label col-md-2" for="cardnumber">Expiration Month</label>
+                                        <div class="col-md-3">
+                                            ${ checkout_form['ExpirationMonth']}
+                                            ${ checkout_form['ExpirationMonth'].errors}
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-2" for="expdate">CVV</label>
+                                        <label class="control-label col-md-2" for="cardnumber">Expiration Month</label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" id="expdate" placeholder="801">
+                                            ${ checkout_form['ExpirationYear']}
+                                            ${ checkout_form['ExpirationYear'].errors}
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="cardnumber">Card Number</label>
+                                        <div class="col-md-3">
+                                            ${ checkout_form['Cvv']}
+                                            ${ checkout_form['Cvv'].errors}
+                                        </div>
+                                    </div>
+
 
                             <!-- Confirm order button -->
                             <div class="row">
                                 <div class="col-md-4 col-md-offset-8">
                                     <div class="pull-right">
-                                        <a href="/shop/confirmation/" class="btn btn-danger">Confirm Order</a>
+                                        <button type="submit" class="btn btn-danger">Confirm Order</button>
+                                        <!-- <a href="/shop/confirmation/" class="btn btn-danger">Confirm Order</a> -->
                                     </div>
                                 </div>
                             </div>
+                        </form>
+                    </div>
+
                         </div>
                     </div>
                 </div>
