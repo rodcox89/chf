@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425702704.049614
+_modified_time = 1428445223.507195
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/shop/templates/index.loginform.html'
 _template_uri = 'index.loginform.html'
@@ -50,9 +50,9 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\n\n    <form id="loginform" method="POST" action="/shop/index.loginform/">\n\n        <table>\n            ')
+        __M_writer('\n\n    <form id="loginform" method="POST" action="/shop/index.loginform/">\n        <table>\n            ')
         __M_writer(str( form ))
-        __M_writer('\n        </table>\n            <input type="submit"/>\n\n\n    </form>\n')
+        __M_writer('\n        </table>\n        <p>Forgot your password? Click <a href="/password_reset/">Here</a></p>\n        <input type="submit"/>\n    </form>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -60,6 +60,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "uri": "index.loginform.html", "filename": "/Users/rodneycox/chf/shop/templates/index.loginform.html", "line_map": {"35": 1, "53": 3, "54": 8, "55": 8, "40": 14, "27": 0, "61": 55, "46": 3}}
+{"uri": "index.loginform.html", "line_map": {"35": 1, "53": 3, "54": 7, "55": 7, "40": 13, "27": 0, "61": 55, "46": 3}, "filename": "/Users/rodneycox/chf/shop/templates/index.loginform.html", "source_encoding": "ascii"}
 __M_END_METADATA
 """

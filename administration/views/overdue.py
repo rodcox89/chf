@@ -15,17 +15,75 @@ templater = get_renderer('administration')
 @view_function
 # @permission_required('admin.delete_logentry', login_url='/administration/login/')
 def process_request(request):
-    params = {}
 
-    today = datetime.date.today()
+    template_vars = {}
+    # today = datetime.date.today()
+    #
+    # start_date = datetime.date(today.year-20, today.month, today.day)
+    # end_date = datetime.date(today.year, today.month, today.day-1)
 
-    start_date = datetime.date(today.year-20, today.month, today.day)
-    end_date = datetime.date(today.year, today.month, today.day-1)
+    # overdueitems = hmod.Rental.objects.filter(due_date__range = (start_date, end_date))
+    overdue_items = hmod.Rental.objects.filter(was_returned=False)
 
-    overdueitems = hmod.Rentals.objects.filter(due_date__range = (start_date, end_date))
+    ninety = datetime.date.today()-datetime.timedelta(days=90)
+    sixty = datetime.date.today()-datetime.timedelta(days=60)
+    thirty = datetime.date.today()-datetime.timedelta(days=30)
 
-    params['items'] = overdueitems
-    return templater.render_to_response(request, 'overdue.html', params)
+
+    print(overdue_items)
+    thirties = []
+    sixties = []
+    nineties = []
+    under = []
+
+    for item in overdue_items:
+        print('in for loop')
+        if item.due_date < ninety:
+            print('###############################more than 90############################### code')
+            print(item.due_date)
+            nineties.append(item)
+
+        elif item.due_date < sixty:
+            print('###############################more than 60############################### code')
+            print(item.due_date)
+            sixties.append(item)
+
+        elif item.due_date < thirty:
+            print('###############################more than 30############################### code')
+            print(item.due_date)
+            thirties.append(item)
+
+        else:
+            print('###############################it was less than 30############################### code')
+            print(item.due_date)
+            under.append(item)
+
+
+
+    template_vars['thirties'] = thirties
+    template_vars['sixties'] = sixties
+    template_vars['nineties'] = nineties
+    template_vars['under'] = under
+
+
+
+    ninety = datetime.date.today()-datetime.timedelta(days=90)
+    sixty = datetime.date.today()-datetime.timedelta(days=60)
+    thirty = datetime.date.today()-datetime.timedelta(days=60)
+    #  = hmod.Rental.objects.filter(due_date__range = (start_date, end_date))
+
+
+    start_date = datetime.date.today()-datetime.timedelta(days=90)
+    end_date = datetime.date.today()-datetime.timedelta(days=70)
+    over_30 = hmod.Rental.objects.filter(due_date__range = (start_date, end_date))
+
+    print(over_30)
+    # params['over_30'] = over_30
+    # print(params['over_30'])
+
+
+
+    return templater.render_to_response(request, 'overdue.html', template_vars)
 
 ################################
 ## Edit a user

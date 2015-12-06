@@ -3,7 +3,8 @@
 <%block name="content">
 
 <div class="items">
-    <h2>Your Cart</h2>
+    <h2>Products</h2>
+
     <table class="table">
     <thead>
         <th>
@@ -41,7 +42,7 @@
             <td>${ value[0].name }</td>
             <td>$${ value[0].current_price }</td>
             <td>$${ product_sub_total }</td>
-            <td><a href="#" class="red delete_button" data-pid="${ value[0].id}"  }><i class="fa fa-minus-square"></i> </a></td>
+            <td><a href="#" class="red delete_button" data-pid="${ value[0].id}" data-productbool="True" }><i class="fa fa-minus-square"></i> </a></td>
 
 
         </tr>
@@ -49,12 +50,22 @@
     </tbody>
     <tfoot>
     <tr>
-            <td></td>
-            <td></td>
-            <td> </td>
-            <td><h3>Purchase Total</h3></td>
-            <td><h3>$${ purchase_total }</h3></td>
-        </tr>
+        <td>
+            <h2>Rentals</h2>
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+    </tr>
 
     </tfoot>
 
@@ -80,7 +91,10 @@
         </th>
     </thead>
     <tbody>
-        <% rental_total = 0%>
+        <%
+            rental_total = 0
+            allmonth = 0
+        %>
 
 
 
@@ -88,7 +102,9 @@
 
         <%
             month = rental.rental_price * 30
+            allmonth += month
             rental_total +=rental.rental_price
+
         %>
 
         <tr>
@@ -96,7 +112,7 @@
             <td>$${ rental.rental_price }</td>
             <td>$${ month }</td>
 
-            <td><a href="#" class="red delete_button" data-pid="${ rental.id}"  }><i class="fa fa-minus-square delete "></i> </a></td>
+            <td><a href="#" class="red delete_button" data-pid="${ rental.id}" data-productbool="False" }><i class="fa fa-minus-square delete "></i> </a></td>
 
 
         </tr>
@@ -107,9 +123,27 @@
 
             <td></td>
             <td></td>
-            <td><h3>Rental Total</h3></td>
+            <td><h4>Purchase Total</h4></td>
 
-            <td>     <h3> $${ rental_total }</h3>     </td>
+            <td>     <h4> $${ purchase_total }</h4>     </td>
+        </tr>
+        <tr>
+
+            <td></td>
+            <td></td>
+            <td><h4>Rental Total</h4></td>
+
+            <td>     <h4> $${ allmonth }</h4>     </td>
+        </tr>
+        <tr>
+
+            <td></td>
+            <td></td>
+            <td><h4>Grand Total</h4></td>
+            <%
+                grand_total = allmonth+purchase_total
+            %>
+            <td>     <h4> $${ grand_total }</h4>     </td>
         </tr>
         <tr>
 

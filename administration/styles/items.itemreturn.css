@@ -1,0 +1,6 @@
+.return-modal{
+    min-height: 300px;
+}
+.return-modal label {color:#000;}
+.return-modal input.form-control {color:#000;}
+.return-modal button.btn-lg{background-color: #000;}

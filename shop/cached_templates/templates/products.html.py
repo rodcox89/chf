@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427949135.277062
+_modified_time = 1428343308.994733
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/shop/templates/products.html'
 _template_uri = 'products.html'
@@ -28,9 +28,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        products = context.get('products', UNDEFINED)
         def shopcontent():
             return render_shopcontent(context._locals(__M_locals))
+        products = context.get('products', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'shopcontent'):
@@ -46,9 +46,9 @@ def render_body(context,**pageargs):
 def render_shopcontent(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        products = context.get('products', UNDEFINED)
         def shopcontent():
             return render_shopcontent(context)
+        products = context.get('products', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    <div class="items">\n        <div class="container">\n            <div class="row">\n                <div class="col-md-12">\n                    <h2 class="title">Products for Sale</h2>\n                </div>\n                <div id="item-loop">\n')
         for product in products:
@@ -73,6 +73,6 @@ def render_shopcontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 33, "65": 33, "66": 35, "35": 1, "68": 41, "40": 45, "74": 68, "46": 3, "59": 18, "67": 35, "53": 3, "54": 11, "55": 12, "56": 17, "57": 17, "58": 18, "27": 0, "60": 25, "61": 25, "62": 29, "63": 29}, "uri": "products.html", "filename": "/Users/rodneycox/chf/shop/templates/products.html", "source_encoding": "ascii"}
+{"line_map": {"64": 33, "65": 33, "66": 35, "35": 1, "68": 41, "40": 45, "74": 68, "46": 3, "59": 18, "67": 35, "53": 3, "54": 11, "55": 12, "56": 17, "57": 17, "58": 18, "27": 0, "60": 25, "61": 25, "62": 29, "63": 29}, "uri": "products.html", "source_encoding": "ascii", "filename": "/Users/rodneycox/chf/shop/templates/products.html"}
 __M_END_METADATA
 """

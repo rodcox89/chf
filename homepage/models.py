@@ -10,7 +10,7 @@ class SiteUser(AbstractUser):
 	state = models.CharField(max_length=12, blank=True, null=True)
 	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
 	phone = models.CharField(max_length=30, blank=True, null=True)
-
+	balance = models.DecimalField(max_digits=10,decimal_places=2, null=True)
 
 class Organization(models.Model):
 	organization_type = models.CharField(max_length=30)
@@ -50,6 +50,7 @@ class Item(models.Model):
 	value = models.DecimalField(max_digits=6, decimal_places=2, null=True)
 	organization = models.CharField(max_length=144, blank=True, null=True)
 	is_rentable = models.NullBooleanField(default=True,blank=True, null=True)
+	is_available = models.NullBooleanField(default = True, blank=True)
 	is_active = models.NullBooleanField(default=True, blank=True, null=True)
 
 	def __str__(self):
@@ -96,7 +97,25 @@ class Venue(models.Model):
 	def __str__(self):
 		return self.name
 
-class Rentals(models.Model):
-	name = models.CharField(max_length=30)
+class Rental(models.Model):
+	customer = models.ForeignKey(SiteUser, null=True)
+	name = models.ForeignKey(Item, null=True)
 	rental_date = models.DateField(blank=True, null=True)
 	due_date = models.DateField(blank=True, null=True)
+	return_date = models.DateField(blank=True, null=True)
+	was_returned = models.BooleanField(default=False)
+	charge_id = models.CharField(max_length=300, blank=True,null=True)
+	damage = models.BooleanField(default=False)
+	waive_late = models.BooleanField(default=False)
+	waive_damage = models.BooleanField(default=False)
+	damage_fee = models.CharField(max_length=1000, blank=True,null=True)
+
+
+
+
+
+class Purchase(models.Model):
+	customer = models.ForeignKey(SiteUser, null=True)
+	total = models.DecimalField(SiteUser, null=True, max_digits=20, decimal_places=2)
+	purchase_date = models.DateField(blank=True, null=True)
+	charge_id = models.CharField(max_length=300,blank=True,null=True)

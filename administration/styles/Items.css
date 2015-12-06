@@ -39,3 +39,35 @@
 #active > li:nth-child(2){
     margin-top: 46px;
 }
+
+#in{
+
+}
+
+
+.tabitha{
+    width: 33%;
+    text-align: center;
+    border-color: black 2px;
+    background-color: #CCC;
+}
+
+.tabitha:hover{
+    width: 33%;
+    text-align: center;
+    border-radius: 0px;
+}
+
+.ovr{
+    color: red;
+}
+
+.mini{
+    background-color: #BE0001 ;
+    /*#D71C20*/
+}
+
+.mini .active {
+
+    #E15558
+}

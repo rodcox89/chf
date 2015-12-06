@@ -1,0 +1,21 @@
+
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+<div class="return-modal">
+    <form class="form-horizontal signin-form"id="return-form" method="POST" action="/administration/items.return_rental/${rental.id}">
+        %for field in form:
+        <div class="form-group">
+            <label class="col-md-3 control-label">${field.label}</label>
+            <div class="col-md-8">
+                ${field}
+                <p>${field.errors}</p>
+            </div>
+        </div>
+        % endfor
+        <div class="col-md-offset-2 col-md-2 save-btn-col">
+            <button type="submit" class="btn btn-lg btn-white">Save</button>
+        </div>
+    </form>
+</div>
+</%block>

@@ -15,6 +15,7 @@ templater = get_renderer('administration')
 @view_function
 # @permission_required('admin.delete_logentry', login_url='/administration/login/')
 def process_request(request):
+
   params = {}
 
   events = hmod.Event.objects.filter(is_active=True).order_by('name')

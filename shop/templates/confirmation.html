@@ -1,12 +1,18 @@
 <%inherit file="base.htm" />
 
 <%block name="shopcontent">
-<h1>Thanks, We'll get your stuff to you ASAP!!!</h1>
+<div class="container">
+
+%if confirmation:
+
+<h1>Order Confirmation# ${ confirmation["ID"] }</h1>
+
+%endif
 <div class="items">
-    <h2>Success</h2>
+    <h2></h2>
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Purchase Summary</div>
+        <div class="panel-heading"><h3>Purchases</h3></div>
 
         <!-- Table -->
         <table class="table">
@@ -23,42 +29,38 @@
                 </td>
             </th>
         <tbody>
-            %for key,value in current_cart.items():
-            <%
-                grand_total = 0
-                price = int(value[0].value)
-                qty = value[1]
+            <% purchase_total = 0%>
 
-                sub_total = (price * qty)
-                grand_total += sub_total
-            %>
+
+            %for key,value in current_cart.items():
+                <%
+
+                    price = int(value[0].current_price)
+                    qty = value[1]
+
+                    product_sub_total = (price * qty)
+                    purchase_total += product_sub_total
+                %>
 
 
                 <tr>
                     <td>${ value[1]}</td>
                     <td>${ value[0].name }</td>
-                    <td>$${ value[0].value }</td>
-                    <td>$${ sub_total }</td>
-                    <td><a href="#" class="red delete_button" data-pid="${ value[0].id}"  }>Remove <i class="fa fa-minus-square"></i> </a></td>
+                    <td>$${ price }</td>
+                    <td>$${ product_sub_total }</td>
 
 
 
                 </tr>
             %endfor
-            <%
-                price = int(value[0].value)
-                qty = value[1]
 
-                sub_total = (price * qty)
-                grand_total += sub_total
-            %>
 
         </tbody>
         </table>
     </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Rental Summary</div>
+        <div class="panel-heading"><h3>Rentals</h3></div>
 
         <!-- Table -->
         <table class="table">
@@ -75,10 +77,11 @@
             </th>
         <tbody>
             <% rental_total=0%>
+
             %for rental in rental_cart:
             <%
-            month = rental.rental_price * 30
-            rental_total +=rental.rental_price
+                month = rental.rental_price * 30
+                rental_total += month
             %>
 
 
@@ -87,73 +90,53 @@
                     <td>${ rental.name }</td>
                     <td>$${ rental.rental_price }</td>
                     <td>$${ month }</td>
-                    <td><a href="#" class="red delete_button" data-pid="${ value[0].id}"  }>Remove <i class="fa fa-minus-square"></i> </a></td>
 
 
 
                 </tr>
             %endfor
-            <%
-                price = int(value[0].value)
-                qty = value[1]
-
-                sub_total = (price * qty)
-                grand_total += sub_total
-            %>
 
         </tbody>
         </table>
+
     </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><h3>Payment Summary</h3></div>
+        <table>
+            <tfoot>
+                <tr>
 
-    <table class="table">
-    <thead>
-        <th>
-                Quantity
-        </th>
-        <th>
-                Name
-        </th>
-        <th>
-                Price
-        </th>
-        <th>
-                Item Total
-        </th>
-        <th>
-                Remove
-        </th>
-    </thead>
-    <tbody>
+                    <td></td>
+                    <td></td>
+                    <td><h4>Purchase Total </h4></td>
 
+                    <td>     <h4> $${ purchase_total }</h4>     </td>
+                </tr>
+                <tr>
 
-    %for key,value in confirmation.items():
+                    <td></td>
+                    <td></td>
+                    <td><h4>Rental Total</h4></td>
 
+                    <td>     <h4> $${ rental_total }</h4>     </td>
+                </tr>
+                <tr>
 
+                    <td></td>
+                    <td></td>
+                    <td><h4>Grand Total</h4></td>
+                    <%
+                        grand_total = rental_total+purchase_total
+                    %>
+                    <td>     <h4> $${ grand_total }</h4>     </td>
+                </tr>
+                <tr>
 
-        <tr>
-            <td>${ key}</td>
-            <td>
-                ${ value }
-            </td>
-
-
-
-
-        </tr>
-    %endfor
-    </tbody>
-    <tfoot>
-    <tr>
-            <td></td>
-            <td></td>
-            <td> </td>
-            <td><h3></h3></td>
-            <td><h3></h3></td>
-        </tr>
-
-    </tfoot>
-
-</table>
+            </tfoot>
+        </table>
+    </div>
+</div>
 </div>
 
 </%block>

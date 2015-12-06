@@ -53,7 +53,7 @@ def process_request(request):
 
 
 
-
+    print(rental_cart)
 
 
     template_vars['rental_cart'] = rental_cart
@@ -96,8 +96,6 @@ def add(request):
 
 
 
-    print(request.session['rental_cart'])
-    print(request.session['shopping_cart'])
     request.session.modified = True
 
     return HttpResponseRedirect('/shop/shopping_cart/')
@@ -105,8 +103,15 @@ def add(request):
 @view_function
 def delete(request):
     pid = request.urlparams[0]
+    product_boolean = request.urlparams[1]
 
-    del request.session['shopping_cart'][pid]
+    if product_boolean == "True":
+        del request.session['shopping_cart'][pid]
+
+    else:
+        request.session['rental_cart'].remove(pid)
+
+
     request.session.modified = True
 
     return HttpResponseRedirect('/shop/shopping_cart/')

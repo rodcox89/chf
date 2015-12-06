@@ -74,10 +74,10 @@ u.save()
 ###############################ARRAY OF users###############################
 #Create new users: username, password, first_name, last_name, is_superuser
 for data in [
-  ['rodcox89', 'password', 'Rodney', 'Cox', True, True],
-  ['stunna81', 'password', 'scott', 'romney', False, True],
-  ['cody123', 'password', 'cody', 'anderson', False, True],
-  ['csmith12', 'password', 'carter', 'Smith', False, True],
+  ['rodcox89', 'password', 'Rodney', 'Cox', True, True, 'rodcox89@gmail.com'],
+  ['stunna81', 'password', 'scott', 'romney', False, True, 'romney81@gmail.com'],
+  ['cody123', 'password', 'cody', 'anderson', False, True, 'rodcox89@gmail.com'],
+  ['csmith12', 'password', 'carter', 'Smith', False, True, 'rodcox89@gmail.com'],
 ]:
 
     #set attributes
@@ -88,6 +88,7 @@ for data in [
     u.last_name = data[3]
     u.is_superuser = data[4]
     u.is_staff = data[5]
+    u.email = data[6]
 
     #save
     u.save()
@@ -101,10 +102,14 @@ hmod.Event.objects.all().delete()
 
 #Create new events: name, description, start, end, venue
 for data in [
-  ['Questival','The best day of your life','2015-04-06','2015-04-07','#igutah'],
-  ['Baptism','For Dan','2015-03-12','2015-03-12','Provo Temple'],
-  ['Bonfire','For the besties','2015-02-28','2015-02-28','Provo Canyon'],
-  ['Dinner Nite','Going away dinner for Jeff','2015-05-05','2015-05-05','SLAB Pizza'],
+  ['Questival','The most intense magical journey you have every experienced','2015-04-06','2015-04-07','Energy Solutions'],
+  ['Bread Making','Come see how amazing Gove Allen is at making bread','2015-03-12','2015-03-12','Liberty Park'],
+  ['Bonfire','We will make the flames touch the heavens','2015-02-28','2015-02-28','Provo Library'],
+  ['Lunch Special','Come meet the employees of dunder miflin paper company','2015-05-05','2015-05-05','Slab Pizza'],
+  ['Park Revival','With special musical guests, this activity cannot me missed','2015-05-06','2015-05-06','Scera Theatre'],
+  ['Grape Mashing Festival','Ready for Summer? Come join us by mashing into the summer','2015-06-06','2015-05-06','Brockbank Elementary'],
+  ['Battle of the Little Bighorn reenactment','Since the 1990s there have been two events conducted annually close to the anniversary of the battle in late June, although in 2015 only one event has been scheduled to take place','2015-06-06','2015-05-06','the banks of the Little Bighorn River'],
+
 ]:
 
     #set attributes
@@ -128,6 +133,10 @@ for data in [
   ['Rope' , 'Tie stuff up', '1','chf','3'],
   ['Backpack' , 'From Cotopaxi', '29','chf','8'],
   ['Canteen' , 'Parched? ...not anymore!', '5','chf','2'],
+  ['Breeches' , 'Old School Trousers', '50','chf','15'],
+  ['Red Coat' , 'For Southerners', '38','chf','3'],
+  ['Blue Coat' , 'For abolitionists', '29','chf','8'],
+  ['Hat' , 'No more sun on your nose', '5','chf','2'],
 ]:
 
     i = hmod.Item()
@@ -139,6 +148,7 @@ for data in [
 
     i.save()
     print(i)
+    print(i.is_available)
 
 ###############################Products###############################
 #
@@ -224,24 +234,26 @@ for data in [
 ###############################rentals###############################
 
 #Delete old rentals
-hmod.Rentals.objects.all().delete()
+hmod.Rental.objects.all().delete()
 
-#Create new Rentals: name, rental, due
+# Create new Rental: item, rental_date, due_date, customer, damage, person, was_returned
 for data in [
-  ['Breeches','2015-03-05','2015-03-10'],
-  ['Red Coat','2015-02-02','2015-03-06'],
-  ['Blue Coat','2015-01-02','2015-02-02'],
-  ['Hat','2015-01-02','2015-02-02'],
+  ['5','2015-02-05','2015-03-10','1',False],
+  ['6','2015-02-02','2015-03-06','2',False],
+  ['7','2015-01-02','2015-02-02','3',False],
+  ['8','2015-01-02','2015-01-01','4',False],
 ]:
 
     #set attributes
-    rr = hmod.Rentals()
-    rr.name = data[0]
+    rr = hmod.Rental()
+    rr.item = hmod.Item.objects.get(id = data[0])
     rr.rental_date = data[1]
     rr.due_date = data[2]
-    #save
+    rr.customer = hmod.SiteUser.objects.get(id=data[3])
+    rr.was_returned = data[4]
+    # #save
     rr.save()
-    print(rr)
+
 
 
 #runs server

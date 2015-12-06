@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427949176.788947
+_modified_time = 1428613852.251973
 _enable_loop = True
 _template_filename = '/Users/rodneycox/chf/shop/templates/items.html'
 _template_uri = 'items.html'
@@ -28,9 +28,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        items = context.get('items', UNDEFINED)
         def shopcontent():
             return render_shopcontent(context._locals(__M_locals))
+        items = context.get('items', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'shopcontent'):
@@ -46,9 +46,9 @@ def render_body(context,**pageargs):
 def render_shopcontent(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        items = context.get('items', UNDEFINED)
         def shopcontent():
             return render_shopcontent(context)
+        items = context.get('items', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    <div class="items">\n        <div class="container">\n            <div class="row">\n                <div class="col-md-12">\n                    <h2 class="title">Rentable Items</h2>\n                </div>\n                <div id="item-loop">\n')
         for item in items:
@@ -56,7 +56,9 @@ def render_shopcontent(context,**pageargs):
             __M_writer(str( item.id ))
             __M_writer('">\n                                        <img src="/static/shop/media/product_images/')
             __M_writer(str( item.id ))
-            __M_writer('.jpg" />\n                                    </a>\n                                </div>\n                                <!-- Item details -->\n                                <div class="item-details">\n                                    <!-- Name -->\n                                    <!-- Use the span tag with the class "ico" and icon link (hot, sale, deal, new) -->\n                                    <h5>')
+            __M_writer('.jpg" alt="')
+            __M_writer(str( item.id))
+            __M_writer('.jpg image" />\n                                    </a>\n                                </div>\n                                <!-- Item details -->\n                                <div class="item-details">\n                                    <!-- Name -->\n                                    <!-- Use the span tag with the class "ico" and icon link (hot, sale, deal, new) -->\n                                    <h5>')
             __M_writer(str( item.name ))
             __M_writer('\n                                    </h5>\n                                    <div class="clearfix"></div>\n                                    <!-- Para. Note more than 2 lines. -->\n                                    <p>')
             __M_writer(str( item.description ))
@@ -73,6 +75,6 @@ def render_shopcontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 33, "65": 33, "66": 35, "35": 1, "68": 41, "40": 45, "74": 68, "46": 3, "59": 18, "67": 35, "53": 3, "54": 11, "55": 12, "56": 17, "57": 17, "58": 18, "27": 0, "60": 25, "61": 25, "62": 29, "63": 29}, "uri": "items.html", "filename": "/Users/rodneycox/chf/shop/templates/items.html", "source_encoding": "ascii"}
+{"line_map": {"64": 29, "65": 29, "66": 33, "67": 33, "68": 35, "69": 35, "70": 41, "76": 70, "27": 0, "35": 1, "40": 45, "46": 3, "53": 3, "54": 11, "55": 12, "56": 17, "57": 17, "58": 18, "59": 18, "60": 18, "61": 18, "62": 25, "63": 25}, "source_encoding": "ascii", "filename": "/Users/rodneycox/chf/shop/templates/items.html", "uri": "items.html"}
 __M_END_METADATA
 """

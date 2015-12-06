@@ -12,21 +12,45 @@ templater = get_renderer('shop')
 @view_function
 def process_request(request):
 
-  template_vars = {
-  }
+    template_vars = {
+    }
 
-  items = hmod.Item.objects.all()
+    # rental = hmod.Rental.obects.filter(was_returned=False)
+    items = hmod.Item.objects.filter(is_available=True)
 
-  template_vars['items'] = items
+    template_vars['items'] = items
 
-  # item_id = request.urlparams[0]
-  # item = hmod.Item()
-
-
-
+    # item_id = request.urlparams[0]
+    # item = hmod.Item()
 
 
 
 
 
-  return templater.render_to_response(request, 'items.html', template_vars)
+
+
+    return templater.render_to_response(request, 'items.html', template_vars)
+
+
+
+@view_function
+def rent(request):
+
+    template_vars = {
+    }
+
+    item_to_rent = request
+
+    template_vars['items'] = items
+
+    # item_id = request.urlparams[0]
+    # item = hmod.Item()
+
+
+
+
+
+
+
+
+    return templater.render_to_response(request, 'items.html', template_vars)

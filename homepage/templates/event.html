@@ -1,0 +1,70 @@
+<%inherit file="base.htm" />
+<%import datetime %>
+<%block name="content">
+    <div class="festiv-event">
+        <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1>Event Description</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<!-- Image Column -->
+					<div class="col-sm-6">
+						<div class="portfolio-item">
+							<div class="portfolio-image">
+								<a href="#"><img src="${STATIC_URL}/homepage/media/event${event.id}.jpg" alt="${event.name}"></a>
+							</div>
+						</div>
+					</div>
+					<!-- End Image Column -->
+					<!-- Project Info Column -->
+					<div class="portfolio-item-description col-sm-6">
+						<h3>${event.name}</h3>
+						<p>
+                            ${event.description}
+						</p>
+						<p>
+
+						</p>
+						<ul class="no-list-style">
+							<li><b>Location:</b> ${event.location}</li>
+							<li><b>Date:</b> ${event.start_date.strftime('%A, %B %d, %Y')} - ${event.end_date.strftime('%A, %B %d, %Y')}</li>
+						</ul>
+					</div>
+					<!-- End Project Info Column -->
+				</div>
+				<!-- Related Projects -->
+				<h3>Items For Sale</h3>
+				<div class="row">
+                    %for item in items:
+					<div class="col-md-4 col-sm-6">
+
+						<div class="portfolio-item">
+							<div class="portfolio-image">
+								<a href="#"><img id="saleitem" src="${STATIC_URL}/shop/media/product_images/${item.id}.jpg" alt="${item.name}"></a>
+							</div>
+							<div class="portfolio-info-fade">
+								<ul>
+									<li class="portfolio-project-name">${item.name}</li>
+									<li>${item.description}</li>
+									<li>Price: $${item.value}</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+                    %endfor
+				</div>
+				<!-- End Related Projects -->
+			</div>
+		</div>
+    </div>
+</%block>

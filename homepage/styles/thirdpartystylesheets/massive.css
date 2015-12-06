@@ -20,7 +20,7 @@ main,
 nav,
 section,
 summary {
-  
+
 
 
   display: block;
@@ -39,7 +39,7 @@ summary {
 
 #wrapper > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > ul.nav.navbar-nav.navbar-right.navbar-user > li.dropdown.user-dropdown > a,a:hover
 {
-  
+
 }
 
 #page-wrapper > h1{
@@ -3636,7 +3636,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #ffffff;
-  background-color: #2a9fd6;
+  background-color: #282828;
   border: 1px solid #282828;
   border-bottom-color: transparent;
   cursor: default;
@@ -4169,14 +4169,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #ffffff;
   background-color: transparent;
 
-  
+
 }
 
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
   background-color: transparent;
   border-left: 7px solid #D71C20;
-  
+
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
@@ -5216,119 +5216,6 @@ button.close {
   border: 0;
   -webkit-appearance: none;
 }
-.modal-open {
-  overflow: hidden;
-}
-.modal {
-  display: none;
-  overflow: auto;
-  overflow-y: scroll;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1050;
-  -webkit-overflow-scrolling: touch;
-  outline: 0;
-}
-.modal.fade .modal-dialog {
-  -webkit-transform: translate(0, -25%);
-  -ms-transform: translate(0, -25%);
-  transform: translate(0, -25%);
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-}
-.modal.in .modal-dialog {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-.modal-dialog {
-  position: relative;
-  width: auto;
-  margin: 10px;
-}
-.modal-content {
-  position: relative;
-  background-color: #202020;
-  border: 1px solid #999999;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  background-clip: padding-box;
-  outline: none;
-}
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1040;
-  background-color: #000000;
-}
-.modal-backdrop.fade {
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-.modal-backdrop.in {
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-}
-.modal-header {
-  padding: 15px;
-  border-bottom: 1px solid #282828;
-  min-height: 16.42857143px;
-}
-.modal-header .close {
-  margin-top: -2px;
-}
-.modal-title {
-  margin: 0;
-  line-height: 1.42857143;
-}
-.modal-body {
-  position: relative;
-  padding: 20px;
-}
-.modal-footer {
-  margin-top: 15px;
-  padding: 19px 20px 20px;
-  text-align: right;
-  border-top: 1px solid #282828;
-}
-.modal-footer .btn + .btn {
-  margin-left: 5px;
-  margin-bottom: 0;
-}
-.modal-footer .btn-group .btn + .btn {
-  margin-left: -1px;
-}
-.modal-footer .btn-block + .btn-block {
-  margin-left: 0;
-}
-@media (min-width: 768px) {
-  .modal-dialog {
-    width: 600px;
-    margin: 30px auto;
-  }
-  .modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  }
-  .modal-sm {
-    width: 300px;
-  }
-}
-@media (min-width: 992px) {
-  .modal-lg {
-    width: 900px;
-  }
-}
 .tooltip {
   position: absolute;
   z-index: 1030;
@@ -5960,9 +5847,7 @@ legend {
 .pager:before,
 .pager:after,
 .panel-body:before,
-.panel-body:after,
-.modal-footer:before,
-.modal-footer:after {
+.panel-body:after {
   content: " ";
   display: table;
 }
@@ -5978,8 +5863,7 @@ legend {
 .navbar-header:after,
 .navbar-collapse:after,
 .pager:after,
-.panel-body:after,
-.modal-footer:after {
+.panel-body:after {
   clear: both;
 }
 .center-block {
@@ -6093,7 +5977,7 @@ table.tablesorter thead tr th:hover {
   padding: 25px;
   padding-left:10px;
   padding-top: 0px;
-  
+
   }
 
   /* Side Nav */
@@ -6430,7 +6314,3 @@ table.tablesorter thead tr th:hover {
                     right: auto;
                 }
         }
-
-
-
-

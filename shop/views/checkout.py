@@ -9,11 +9,46 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, EmailMessage
+from django.core.validators import validate_email
 import homepage.models as hmod
 import requests
+import datetime
 from collections import OrderedDict
 
 templater = get_renderer('shop')
+
+def get_total(request):
+    product_total =0
+    rental_total =0
+
+    total=0
+    if 'shopping_cart' in request.session:
+
+        product_ids = request.session['shopping_cart']
+        for key,value in product_ids.items():
+            product = hmod.Product.objects.get(id=key)
+            amount = int(product.current_price)
+
+            total += (value*amount)
+            print('###############################total############################### code')
+            print(total)
+
+    if 'rental_cart' in request.session:
+        print("rental runs")
+        rental_ids = request.session['rental_cart']
+        for itemid in rental_ids:
+            item = hmod.Item.objects.get(id=itemid)
+            amount = int(item.rental_price*30)
+            print("this is the ", amount)
+            total += (amount)
+            print(total)
+
+
+
+
+    return total
+
 
 @view_function
 @login_required(login_url='/homepage/login/')
@@ -58,10 +93,7 @@ def process_request(request):
         request.session['shopping_cart'] = {}
 
 
-
-    template_vars = {}
-
-        #shows the items in the shopping cart in a modal
+    #shows the items in the shopping cart in a modal
     cart_items = {}# create a new dictionary
     cart_items = request.session['shopping_cart'] #assign session session to new  dictionary
     current_cart = {}
@@ -107,34 +139,6 @@ def process_request(request):
 
     return templater.render_to_response(request, 'checkout.html', template_vars)
 
-def get_total(request):
-    product_total =0
-    rental_total =0
-
-    total=0
-    if 'shopping_cart' in request.session:
-
-        product_ids = request.session['shopping_cart']
-        for key,value in product_ids.items():
-            product = hmod.Product.objects.get(id=key)
-            amount = int(product.current_price)
-
-            total += (value*amount)
-
-    if 'rental_cart' in request.session:
-
-        rental_ids = request.session['rental_cart']
-        for key,value in product_ids.items():
-            item = hmod.Item.objects.get(id=key)
-            amount = int(item.rental_price*30)
-
-            total += (value*amount)
-
-
-
-
-
-    return total
 
 @view_function
 @login_required(login_url='/homepage/login/')
@@ -146,7 +150,7 @@ def charge(request):
 
     r = requests.post(API_URL, data=request.session['chargedict'])
 
-    print('4732817300654')
+
 
     resp = r.json()
     print(resp)
@@ -158,23 +162,12 @@ def charge(request):
 
     else:
         template_vars={}
-        if request.user.email != "":
-            subject = "CHF Receipt"
-            to = [request.user.email]
-            from_email = 'dan.morain91@gmail.com'
 
-            params['total'] = get_total(request)
+        request.session['response'] = resp
+        template_vars['confirmation'] = resp
+        print('###############################confirmation###############################')
+        print(resp)
 
-            message = templater.render(request, 'email_receipt2.html', params)
-
-            msg = EmailMessage(subject, message, to=to, from_email=from_email)
-            msg.content_subtype = 'html'
-            msg.send()
-
-            confirmation = resp
-            template_vars ={
-                'confirmation': confirmation,
-            }
 
         print(template_vars)
 
@@ -186,13 +179,13 @@ def charge(request):
 
 
             #shows the items in the shopping cart in a modal
-        cart_items = {}# create a new dictionary
         cart_items = request.session['shopping_cart'] #assign session session to new  dictionary
+
         current_cart = {}
         for key,value in cart_items.items():
 
 
-            item = hmod.Item.objects.get(id=key)
+            item = hmod.Product.objects.get(id=key)
             ###############################create capsule############################### code
             item_container = [] #creates capsule
             item_container.append(item) #adds the item object
@@ -200,6 +193,15 @@ def charge(request):
             ###############################capsule created############################### code
 
             current_cart[item.id] = item_container
+            purch = hmod.Purchase()
+
+            purch.customer = request.user
+            purch.total = 45
+            purch.purchase_date = datetime.date.today()
+            purch.charge_id = resp["ID"]
+
+
+            print(purch)
 
         if 'rental_cart' not in request.session:# checks for rental session
             request.session['rental_cart'] = []# if no rental session, it get's created
@@ -209,22 +211,48 @@ def charge(request):
         rental_cart = [] ## creates an empty list
         for rental_item in rental_ids:  #iterates through the rental session
 
-            rental_item = hmod.Item.objects.get(id=rental_item) #checks id's against the Id's of actual items in my database
-            rental_cart.append(rental_item) # adds the actual item objects to the rental cart list I made
+            rentitem = hmod.Item.objects.get(id=rental_item) #checks id's against the Id's of actual items in my database
+            rental_cart.append(rentitem) # adds the actual item objects to the rental cart list I made
+            #create new rental
+            rentitem.is_available = False
+            rentitem.save()
+            rental = hmod.Rental()
+
+            rental.name = rentitem
+            rental.rental_date = datetime.date.today()
+            rental.due_date = (datetime.date.today() + datetime.timedelta(days=30))
+            rental.customer = request.user
+            print(rental)
+            rental.save()
+
+
+
+        template_vars['rental_cart'] = rental_cart
+        template_vars['current_cart'] = current_cart
+
+        ###############################send email############################### code
+        if request.user.email != "":
+            subject = "CHF Receipt"
+            to = [request.user.email]
+            from_email = 'rodcox89@gmail.com'
+
+            template_vars['total'] = get_total(request)
+            template_vars['confirmation'] = resp
+
+            message = templater.render(request, 'confirmationemail.html', template_vars)
+
+            msg = EmailMessage(subject, message, to=to, from_email=from_email)
+            msg.content_subtype = 'html'
+            msg.send()
 
 
 
 
 
-        template_vars = {
 
-            # 'confirmation': confirmation,
-            'current_cart': current_cart,
-            'rental_cart': rental_cart,
-    	}
 
-        print('###############################this should print############################### code')
-
+        del request.session['rental_cart']
+        del request.session['shopping_cart']
 
         return templater.render_to_response(request, 'confirmation.html', template_vars)
 

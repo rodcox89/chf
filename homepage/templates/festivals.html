@@ -1,0 +1,48 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+<div class="festival-container">
+    <div class="section section-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Upcoming Events</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="events-list">
+                        <%
+                            counter = 0
+                        %>
+                        %for event in events:
+                        <tr>
+                            <td>
+                                <div class="event-date">
+                                    <div class="event-day">${days[counter]}</div>
+                                    <div class="event-month">${months[counter]}</div>
+                                </div>
+                            </td>
+                            <td>
+                                ${event.description}
+                            </td>
+                            <td class="event-venue hidden-xs">${event.location}</td>
+                            <td class="event-price hidden-xs">FREE</td>
+                            <td><a href="/event/${event.id}" class="btn btn-grey btn-sm event-more">Read More</a></td>
+                        </tr>
+                        <%
+                            counter += 1
+                        %>
+                        %endfor
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</%block>
